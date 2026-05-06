@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="OKO-TO — Protected payment links for WhatsApp and Instagram sellers in Nigeria. Buyers pay safely. Sellers close more sales." />
+  <title>OKO-TO — Protected Payment Links for WhatsApp &amp; Instagram Sellers</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
+<style>
+/* ─────────────────────────────────────────────
+   OKO-TO  |  All styles
+   Palette : Deep Forest Green · Warm Amber · Cream
+   Fonts   : DM Serif Display + DM Sans
+───────────────────────────────────────────── */
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --green-900:#0f2318;
+  --green-800:#163020;
+  --green-700:#1d4228;
+  --green-600:#255535;
+  --green-500:#2d6940;
+  --green-400:#3d8a55;
+  --green-300:#6bb580;
+  --green-100:#d4ead9;
+  --green-50:#edf6ef;
+  --amber:#d4872a;
+  --amber-lt:#e8a84f;
+  --cream:#faf7f2;
+  --white:#ffffff;
+  --ink-900:#0f1a12;
+  --ink-400:#5a7561;
+  --ink-200:#a8bfac;
+  --red:#c0392b;
+  --red-bg:#fdf0ef;
+  --red-border:#f5c6c3;
+  --radius-sm:10px;
+  --radius-md:16px;
+  --radius-lg:24px;
+  --radius-xl:36px;
+  --shadow-xs:0 1px 4px rgba(15,35,24,.06);
+  --shadow-sm:0 2px 10px rgba(15,35,24,.08);
+  --shadow-md:0 6px 28px rgba(15,35,24,.11);
+  --shadow-lg:0 16px 64px rgba(15,35,24,.15);
+  --ease:cubic-bezier(0.4,0,0.2,1);
+  --transition:0.25s cubic-bezier(0.4,0,0.2,1);
+  --nav-h:68px;
+}
+
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'DM Sans',system-ui,sans-serif;background:var(--cream);color:var(--ink-900);line-height:1.65;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{cursor:pointer;font-family:inherit}
+
+.container{width:100%;max-width:1120px;margin:0 auto;padding:0 24px}
+
+/* Section labels */
+.section-label{display:inline-block;font-size:.72rem;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--green-500);background:var(--green-50);border:1px solid var(--green-100);padding:4px 14px;border-radius:100px;margin-bottom:18px}
+.section-label--light{color:var(--amber);background:rgba(212,135,42,.1);border-color:rgba(212,135,42,.22)}
+.section-label--dark{color:var(--amber-lt);background:rgba(212,135,42,.13);border-color:rgba(212,135,42,.28)}
+.section-header{text-align:center;margin-bottom:60px}
+.section-headline{font-family:'DM Serif Display',Georgia,serif;font-size:clamp(1.9rem,4.5vw,2.75rem);color:var(--ink-900);line-height:1.15;margin-bottom:14px}
+.section-sub{color:var(--ink-400);font-size:1.03rem;max-width:520px;margin:0 auto;line-height:1.7}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 28px;border-radius:100px;font-size:.93rem;font-weight:600;border:none;transition:all var(--transition);white-space:nowrap;line-height:1;cursor:pointer}
+.btn--primary{background:var(--amber);color:var(--white);box-shadow:0 4px 18px rgba(212,135,42,.32)}
+.btn--primary:hover{background:var(--amber-lt);transform:translateY(-2px);box-shadow:0 8px 28px rgba(212,135,42,.42)}
+.btn--ghost{background:transparent;color:var(--cream);border:1.5px solid rgba(255,255,255,.3)}
+.btn--ghost:hover{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.5)}
+.btn--full{width:100%}
+.btn-spinner{display:inline-block;width:16px;height:16px;border:2px solid rgba(255,255,255,.35);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ── NAV ── */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 28px;background:rgba(15,35,24,.94);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.055);transition:box-shadow var(--transition)}
+.nav--scrolled{box-shadow:0 4px 32px rgba(0,0,0,.22)}
+.nav__logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo-mark{color:var(--amber);display:flex;align-items:center;flex-shrink:0}
+.logo-wordmark{font-family:'DM Serif Display',Georgia,serif;font-size:1.3rem;letter-spacing:.05em;color:var(--cream)}
+.nav__links{display:flex;align-items:center;gap:32px}
+.nav__link{font-size:.88rem;font-weight:500;color:rgba(250,247,242,.68);transition:color var(--transition)}
+.nav__link:hover{color:var(--cream)}
+.nav__cta-link{padding:8px 22px;border-radius:100px;background:var(--amber);color:var(--white);font-size:.86rem;font-weight:600;transition:all var(--transition)}
+.nav__cta-link:hover{background:var(--amber-lt)}
+.nav__hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;padding:8px}
+.nav__hamburger span{display:block;width:22px;height:2px;background:var(--cream);border-radius:2px}
+
+/* Mobile menu */
+.mobile-menu{position:fixed;top:0;right:-100%;width:80%;max-width:320px;height:100%;background:var(--green-900);z-index:200;display:flex;flex-direction:column;padding:84px 32px 40px;gap:30px;transition:right .38s var(--ease);box-shadow:-8px 0 40px rgba(0,0,0,.3)}
+.mobile-menu.open{right:0}
+.mobile-menu__close{position:absolute;top:20px;right:20px;background:none;border:none;color:rgba(250,247,242,.7);font-size:1.1rem;padding:10px;line-height:1;transition:color var(--transition)}
+.mobile-menu__close:hover{color:var(--cream)}
+.mobile-menu__link{font-size:1.08rem;font-weight:500;color:rgba(250,247,242,.75);transition:color var(--transition)}
+.mobile-menu__link:hover{color:var(--cream)}
+.mobile-menu__link--cta{margin-top:10px;padding:14px 24px;background:var(--amber);color:var(--white)!important;border-radius:100px;text-align:center;font-weight:600}
+.mobile-menu__overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:150;opacity:0;pointer-events:none;transition:opacity .38s}
+.mobile-menu__overlay.open{opacity:1;pointer-events:all}
+
+/* ── HERO ── */
+.hero{background:var(--green-900);min-height:100vh;display:flex;align-items:center;padding-top:var(--nav-h);position:relative;overflow:hidden}
+.hero__bg-ring{position:absolute;border-radius:50%;border:1px solid rgba(255,255,255,.035);pointer-events:none}
+.hero__bg-ring--1{width:860px;height:860px;top:-220px;right:-220px}
+.hero__bg-ring--2{width:580px;height:580px;top:-80px;right:-80px;border-color:rgba(212,135,42,.06)}
+.hero__bg-ring--3{width:320px;height:320px;bottom:30px;left:-120px;border-color:rgba(255,255,255,.04)}
+.hero__inner{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;padding-top:56px;padding-bottom:80px}
+.hero__badge{display:inline-flex;align-items:center;gap:9px;font-size:.78rem;font-weight:500;color:var(--amber-lt);background:rgba(212,135,42,.11);border:1px solid rgba(212,135,42,.2);padding:6px 14px;border-radius:100px;margin-bottom:22px;letter-spacing:.01em}
+.hero__badge-dot{width:7px;height:7px;border-radius:50%;background:var(--amber);animation:pulse 2.2s ease-in-out infinite;flex-shrink:0}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.55;transform:scale(1.35)}}
+.hero__headline{font-family:'DM Serif Display',Georgia,serif;font-size:clamp(2.6rem,5.2vw,3.9rem);color:var(--cream);line-height:1.07;margin-bottom:20px}
+.hero__headline em{font-style:italic;color:var(--amber-lt)}
+.hero__sub{color:rgba(250,247,242,.65);font-size:1.06rem;line-height:1.72;max-width:440px;margin-bottom:36px}
+.hero__actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:18px}
+.hero__reassurance{font-size:.8rem;color:var(--ink-200)}
+
+/* Phone mockup */
+.phone-mockup{background:#192c20;border-radius:32px;padding:22px 18px;box-shadow:var(--shadow-lg),0 0 0 1px rgba(255,255,255,.055);max-width:310px;margin:0 auto;animation:floatUp 4.5s ease-in-out infinite}
+@keyframes floatUp{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.phone-mockup__screen{display:flex;flex-direction:column;gap:10px}
+.chat-bubble{font-size:.8rem;padding:10px 14px;border-radius:14px;max-width:88%;line-height:1.55;color:var(--cream)}
+.chat-bubble--received{background:rgba(255,255,255,.08);border-radius:14px 14px 14px 4px;align-self:flex-start}
+.chat-name{display:block;font-size:.68rem;font-weight:600;color:var(--green-300);margin-bottom:3px}
+.chat-bubble--sent{background:var(--amber);color:var(--white);border-radius:14px 14px 4px 14px;align-self:flex-end;font-size:.8rem}
+.payment-card{background:var(--cream);border-radius:14px;padding:14px;box-shadow:0 6px 24px rgba(0,0,0,.28)}
+.payment-card__header{display:flex;justify-content:space-between;align-items:center;margin-bottom:11px;padding-bottom:10px;border-bottom:1px solid rgba(15,35,24,.07)}
+.payment-card__logo-sm{display:flex;align-items:center;gap:5px;font-family:'DM Serif Display',Georgia,serif;font-size:.75rem;color:var(--green-700);letter-spacing:.02em}
+.payment-card__logo-sm svg{color:var(--amber)}
+.payment-card__shield{font-size:.66rem;font-weight:600;background:var(--green-50);color:var(--green-600);border:1px solid var(--green-100);padding:2px 8px;border-radius:100px}
+.payment-card__body{margin-bottom:10px}
+.payment-card__seller{font-size:.68rem;color:var(--ink-400);margin-bottom:2px}
+.payment-card__item{font-size:.8rem;font-weight:600;color:var(--ink-900);margin-bottom:6px}
+.payment-card__amount{font-family:'DM Serif Display',Georgia,serif;font-size:1.28rem;color:var(--green-700);line-height:1}
+.payment-card__notice{font-size:.68rem;color:var(--ink-400);background:var(--green-50);border:1px solid var(--green-100);border-radius:8px;padding:7px 10px;margin-bottom:10px;line-height:1.45}
+.payment-card__btn{width:100%;padding:9px;background:var(--amber);color:var(--white);border:none;border-radius:8px;font-size:.78rem;font-weight:600;text-align:center;cursor:default}
+.status-bar{display:flex;align-items:center;justify-content:center;gap:4px;padding:10px 12px;background:rgba(255,255,255,.045);border-radius:12px}
+.status-step{display:flex;flex-direction:column;align-items:center;gap:4px;font-size:.62rem;color:rgba(250,247,242,.35)}
+.status-step--done{color:var(--green-300)}
+.status-step--active{color:var(--amber-lt)}
+.status-step__dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.12);border:1.5px solid currentColor}
+.status-step--done .status-step__dot{background:var(--green-300);border-color:var(--green-300)}
+.status-step--active .status-step__dot{background:var(--amber);border-color:var(--amber);box-shadow:0 0 8px rgba(212,135,42,.55);animation:pulse 1.8s ease-in-out infinite}
+.status-step__line{flex:1;height:1.5px;background:rgba(255,255,255,.09);min-width:18px;align-self:flex-start;margin-top:7px}
+.status-step__line--done{background:var(--green-300)}
+
+/* ── PROBLEM ── */
+.problem{background:var(--white);padding:100px 0}
+.problem__inner{text-align:center}
+.problem__label{display:inline-block;font-size:.72rem;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--red);background:var(--red-bg);border:1px solid var(--red-border);padding:4px 14px;border-radius:100px;margin-bottom:22px}
+.problem__headline{font-family:'DM Serif Display',Georgia,serif;font-size:clamp(1.75rem,4vw,2.5rem);max-width:660px;margin:0 auto 52px;line-height:1.2;color:var(--ink-900)}
+.problem__cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;text-align:left}
+.problem__card{background:var(--cream);border:1px solid rgba(15,35,24,.06);border-radius:var(--radius-lg);padding:30px;transition:box-shadow var(--transition),transform var(--transition)}
+.problem__card:hover{box-shadow:var(--shadow-md);transform:translateY(-3px)}
+.problem__icon-wrap{width:44px;height:44px;border-radius:12px;background:var(--green-50);border:1px solid var(--green-100);display:flex;align-items:center;justify-content:center;margin-bottom:16px;color:var(--green-500)}
+.problem__card h3{font-family:'DM Serif Display',Georgia,serif;font-size:1.12rem;margin-bottom:10px;color:var(--ink-900)}
+.problem__card p{font-size:.9rem;color:var(--ink-400);line-height:1.68}
+
+/* ── HOW IT WORKS ── */
+.how{background:var(--cream);padding:100px 0}
+.steps{display:grid;grid-template-columns:1fr auto 1fr auto 1fr auto 1fr;gap:0;align-items:start}
+.step{display:flex;flex-direction:column}
+.step__number{font-family:'DM Serif Display',Georgia,serif;font-size:2.8rem;line-height:1;color:var(--green-100);margin-bottom:14px}
+.step__icon-wrap{width:50px;height:50px;border-radius:14px;background:var(--white);border:1.5px solid var(--green-100);display:flex;align-items:center;justify-content:center;margin-bottom:16px;color:var(--green-600);box-shadow:var(--shadow-xs)}
+.step__title{font-family:'DM Serif Display',Georgia,serif;font-size:1rem;margin-bottom:10px;color:var(--ink-900);line-height:1.3}
+.step__desc{font-size:.87rem;color:var(--ink-400);line-height:1.68}
+.step__connector{width:1px;background:linear-gradient(to bottom,var(--green-100) 0%,transparent 100%);align-self:stretch;margin:38px 24px}
+
+/* ── SELLERS ── */
+.sellers{background:var(--green-800);padding:100px 0;overflow:hidden}
+.sellers__inner{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+.sellers__headline{font-family:'DM Serif Display',Georgia,serif;font-size:clamp(2rem,4vw,2.75rem);color:var(--cream);line-height:1.15;margin-bottom:16px}
+.sellers__sub{color:rgba(250,247,242,.62);font-size:.98rem;margin-bottom:28px;line-height:1.72}
+.sellers__list{list-style:none;display:flex;flex-direction:column;gap:13px;margin-bottom:36px}
+.sellers__list li{display:flex;align-items:flex-start;gap:12px;font-size:.9rem;color:rgba(250,247,242,.78);line-height:1.5}
+.sellers__check{color:var(--amber);font-weight:700;flex-shrink:0;margin-top:1px;font-size:1rem}
+.sellers__visual{position:relative;display:flex;justify-content:center;align-items:center;min-height:420px}
+.sellers__trust-card{position:absolute;background:rgba(255,255,255,.065);border:1px solid rgba(255,255,255,.1);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-radius:var(--radius-md);padding:16px 18px;max-width:200px;z-index:2;display:flex;flex-direction:column;gap:8px}
+.sellers__trust-card--tl{top:10px;left:0}
+.sellers__trust-card--br{bottom:10px;right:0}
+.sellers__trust-icon{font-size:1.4rem;line-height:1}
+.sellers__trust-text strong{display:block;font-size:.8rem;font-weight:600;color:var(--cream);margin-bottom:4px}
+.sellers__trust-text p{font-size:.74rem;color:rgba(250,247,242,.55);line-height:1.45}
+.sellers__phone-wrap{z-index:1}
+.sellers__phone{background:#192c20;border-radius:24px;width:238px;box-shadow:var(--shadow-lg),0 0 0 1px rgba(255,255,255,.055);overflow:hidden}
+.sellers__phone-header{background:rgba(255,255,255,.04);padding:13px 16px;display:flex;align-items:center;gap:11px;border-bottom:1px solid rgba(255,255,255,.05)}
+.sellers__profile-avatar{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--amber) 0%,var(--amber-lt) 100%);flex-shrink:0}
+.sellers__profile-info{display:flex;flex-direction:column;gap:2px}
+.sellers__profile-name{font-size:.8rem;font-weight:600;color:var(--cream)}
+.sellers__profile-tag{font-size:.63rem;color:var(--green-300)}
+.sellers__phone-body{padding:14px;display:flex;flex-direction:column;gap:12px}
+.sellers__item-row{display:flex;gap:10px;align-items:center}
+.sellers__item-thumb{width:46px;height:46px;border-radius:8px;background:linear-gradient(135deg,#3d5a46,#255535);flex-shrink:0}
+.sellers__item-detail{display:flex;flex-direction:column;gap:3px}
+.sellers__item-name{font-size:.73rem;font-weight:600;color:var(--cream);line-height:1.3}
+.sellers__item-price{font-size:.8rem;color:var(--amber-lt);font-weight:600}
+.sellers__link-row{display:flex;gap:8px;align-items:center}
+.sellers__link-chip{display:flex;align-items:center;gap:5px;flex:1;font-size:.63rem;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:6px;padding:7px 9px;color:rgba(250,247,242,.45);overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.sellers__share-btn{padding:7px 13px;background:var(--amber);color:var(--white);border:none;border-radius:6px;font-size:.7rem;font-weight:600;cursor:default;flex-shrink:0}
+
+/* ── BUYERS ── */
+.buyers{background:var(--white);padding:100px 0}
+.buyers__grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.buyers__card{background:var(--cream);border:1px solid rgba(15,35,24,.06);border-radius:var(--radius-lg);padding:32px 28px;transition:all var(--transition)}
+.buyers__card:hover{border-color:var(--green-100);box-shadow:var(--shadow-md);transform:translateY(-3px)}
+.buyers__card-icon{width:50px;height:50px;border-radius:14px;background:var(--green-50);border:1px solid var(--green-100);display:flex;align-items:center;justify-content:center;margin-bottom:16px;color:var(--green-500)}
+.buyers__card h3{font-family:'DM Serif Display',Georgia,serif;font-size:1.08rem;margin-bottom:10px;color:var(--ink-900)}
+.buyers__card p{font-size:.9rem;color:var(--ink-400);line-height:1.68}
+
+/* ── TRUST ── */
+.trust{background:var(--cream);padding:100px 0;border-top:1px solid rgba(15,35,24,.05)}
+.trust__inner{display:grid;grid-template-columns:1fr 1.5fr;gap:72px;align-items:start}
+.trust__headline{font-family:'DM Serif Display',Georgia,serif;font-size:clamp(1.75rem,3.5vw,2.35rem);color:var(--ink-900);line-height:1.2;margin-bottom:16px}
+.trust__sub{font-size:.95rem;color:var(--ink-400);line-height:1.72}
+.trust__pillars{display:flex;flex-direction:column;gap:16px}
+.trust__pillar{display:flex;gap:18px;align-items:flex-start;padding:22px 24px;background:var(--white);border:1px solid rgba(15,35,24,.055);border-radius:var(--radius-md);transition:all var(--transition)}
+.trust__pillar:hover{border-color:var(--green-100);box-shadow:var(--shadow-sm)}
+.trust__pillar-icon{width:40px;height:40px;flex-shrink:0;border-radius:10px;background:var(--green-50);border:1px solid var(--green-100);display:flex;align-items:center;justify-content:center;color:var(--green-600);margin-top:1px}
+.trust__pillar strong{display:block;font-size:.93rem;font-weight:600;margin-bottom:5px;color:var(--ink-900)}
+.trust__pillar p{font-size:.86rem;color:var(--ink-400);line-height:1.65;margin:0}
+
+/* ── USE CASES ── */
+.usecases{background:var(--white);padding:100px 0}
+.usecases__grid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px}
+.usecase-card{background:var(--cream);border:1.5px solid rgba(15,35,24,.06);border-radius:var(--radius-lg);padding:28px 20px;transition:all var(--transition)}
+.usecase-card:hover{border-color:var(--amber);box-shadow:0 8px 32px rgba(212,135,42,.09);transform:translateY(-4px)}
+.usecase-card__icon{width:46px;height:46px;border-radius:12px;background:var(--green-50);border:1px solid var(--green-100);display:flex;align-items:center;justify-content:center;color:var(--green-600);margin-bottom:16px}
+.usecase-card h3{font-family:'DM Serif Display',Georgia,serif;font-size:.98rem;margin-bottom:10px;color:var(--ink-900)}
+.usecase-card p{font-size:.84rem;color:var(--ink-400);line-height:1.62}
+
+/* ── WAITLIST ── */
+.waitlist{background:var(--green-900);padding:100px 0;position:relative;overflow:hidden}
+.waitlist__bg-ring{position:absolute;width:720px;height:720px;border-radius:50%;border:1px solid rgba(212,135,42,.05);top:-200px;right:-200px;pointer-events:none}
+.waitlist__inner{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
+.waitlist__headline{font-family:'DM Serif Display',Georgia,serif;font-size:clamp(2rem,4vw,2.75rem);color:var(--cream);line-height:1.15;margin-bottom:16px}
+.waitlist__sub{color:rgba(250,247,242,.62);font-size:.98rem;line-height:1.72;margin-bottom:32px}
+.waitlist__perks{list-style:none;display:flex;flex-direction:column;gap:14px}
+.waitlist__perks li{display:flex;align-items:flex-start;gap:12px;font-size:.9rem;color:rgba(250,247,242,.75);line-height:1.5}
+.waitlist__perk-icon{width:22px;height:22px;border-radius:50%;background:rgba(212,135,42,.15);border:1px solid rgba(212,135,42,.25);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;color:var(--amber-lt)}
+.waitlist__form-wrap{background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.075);border-radius:var(--radius-xl);padding:38px}
+.waitlist__form{display:flex;flex-direction:column;gap:20px}
+.form-group{display:flex;flex-direction:column;gap:7px}
+.form-group label{font-size:.8rem;font-weight:600;color:rgba(250,247,242,.72);letter-spacing:.01em}
+.form-optional{font-weight:400;color:rgba(250,247,242,.35);margin-left:4px}
+.form-group input,.form-group select{width:100%;padding:13px 16px;background:rgba(255,255,255,.055);border:1.5px solid rgba(255,255,255,.1);border-radius:var(--radius-sm);color:var(--cream);font-family:'DM Sans',sans-serif;font-size:.9rem;transition:all var(--transition);-webkit-appearance:none;appearance:none}
+.form-group input::placeholder{color:rgba(250,247,242,.25)}
+.form-group input:focus,.form-group select:focus{outline:none;border-color:var(--amber);background:rgba(255,255,255,.08);box-shadow:0 0 0 3px rgba(212,135,42,.16)}
+.form-group input.error,.form-group select.error{border-color:#f87171;box-shadow:0 0 0 3px rgba(248,113,113,.12)}
+.form-group select{cursor:pointer}
+.form-group select option{background:var(--green-800);color:var(--cream)}
+.select-wrap{position:relative}
+.select-wrap select{padding-right:38px}
+.select-arrow{position:absolute;right:13px;top:50%;transform:translateY(-50%);color:rgba(250,247,242,.35);pointer-events:none;display:flex}
+.input-prefix-wrap{position:relative}
+.input-prefix{position:absolute;left:15px;top:50%;transform:translateY(-50%);color:rgba(250,247,242,.35);font-size:.9rem;pointer-events:none}
+.input-prefix-wrap input{padding-left:28px}
+.form-error{font-size:.76rem;color:#f87171;min-height:16px;display:block;line-height:1}
+.waitlist__privacy{font-size:.74rem;color:rgba(250,247,242,.32);text-align:center;margin-top:2px}
+.waitlist__success{display:flex;flex-direction:column;align-items:center;text-align:center;padding:48px 20px;gap:16px}
+.success-ring{color:var(--amber-lt)}
+.waitlist__success h3{font-family:'DM Serif Display',Georgia,serif;font-size:1.5rem;color:var(--cream)}
+.waitlist__success p{font-size:.93rem;color:rgba(250,247,242,.6);line-height:1.7;max-width:320px}
+
+/* ── FOOTER ── */
+.footer{background:var(--green-900);border-top:1px solid rgba(255,255,255,.055);padding:56px 0 32px}
+.footer__inner{display:flex;flex-direction:column;gap:0}
+.footer__top{display:grid;grid-template-columns:1fr auto;gap:48px;align-items:start;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.05);margin-bottom:28px}
+.footer__brand{display:flex;flex-direction:column;gap:12px}
+.footer__tagline{font-size:.84rem;color:rgba(250,247,242,.4);max-width:260px;line-height:1.5}
+.footer__nav{display:flex;gap:48px}
+.footer__nav-col{display:flex;flex-direction:column;gap:12px}
+.footer__nav-heading{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(250,247,242,.3);margin-bottom:4px}
+.footer__nav-col a{font-size:.86rem;color:rgba(250,247,242,.52);transition:color var(--transition)}
+.footer__nav-col a:hover{color:var(--cream)}
+.footer__bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.footer__copy{font-size:.78rem;color:rgba(250,247,242,.28)}
+.footer__legal{display:flex;gap:20px}
+.footer__legal a{font-size:.76rem;color:rgba(250,247,242,.32);transition:color var(--transition)}
+.footer__legal a:hover{color:rgba(250,247,242,.6)}
+
+/* ── ANIMATIONS ── */
+.fade-in{opacity:0;transform:translateY(24px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+.fade-in-d1{transition-delay:.1s}
+.fade-in-d2{transition-delay:.2s}
+.fade-in-d3{transition-delay:.3s}
+
+/* ── RESPONSIVE ── */
+@media(max-width:960px){
+  .nav__links{display:none}
+  .nav__hamburger{display:flex}
+  .hero__inner{grid-template-columns:1fr;text-align:center;gap:44px;padding-top:44px;padding-bottom:60px}
+  .hero__sub{margin-left:auto;margin-right:auto}
+  .hero__actions{justify-content:center}
+  .hero__reassurance{text-align:center}
+  .problem__cards{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr 1fr;gap:28px}
+  .step__connector{display:none}
+  .sellers__inner{grid-template-columns:1fr;gap:48px}
+  .sellers__visual{min-height:340px}
+  .buyers__grid{grid-template-columns:1fr}
+  .trust__inner{grid-template-columns:1fr;gap:44px}
+  .usecases__grid{grid-template-columns:repeat(2,1fr)}
+  .usecases__grid .usecase-card:last-child{grid-column:1/-1;max-width:320px;margin:0 auto}
+  .waitlist__inner{grid-template-columns:1fr;gap:44px}
+  .footer__top{grid-template-columns:1fr;gap:32px}
+}
+@media(max-width:580px){
+  .container{padding:0 18px}
+  .hero__headline{font-size:2.4rem}
+  .hero__actions{flex-direction:column;align-items:stretch}
+  .phone-mockup{max-width:100%}
+  .steps{grid-template-columns:1fr;gap:32px}
+  .sellers__visual{display:none}
+  .buyers__grid{grid-template-columns:1fr}
+  .usecases__grid{grid-template-columns:1fr 1fr}
+  .waitlist__form-wrap{padding:26px 18px}
+  .footer__top{gap:28px}
+  .footer__nav{gap:28px}
+  .footer__bottom{flex-direction:column;align-items:flex-start}
+  .section-headline{font-size:1.8rem}
+}
+@media(max-width:400px){
+  .hero__headline{font-size:2.1rem}
+  .usecases__grid{grid-template-columns:1fr}
+  .usecases__grid .usecase-card:last-child{grid-column:1;max-width:100%}
+}
+</style>
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav class="nav" id="nav">
+  <a href="#" class="nav__logo" aria-label="OKO-TO Home">
+    <span class="logo-mark" aria-hidden="true">
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+        <circle cx="16" cy="16" r="13.5" stroke="currentColor" stroke-width="2"/>
+        <path d="M16 7.5 C21 7.5,25 11.5,25 16 C25 20.5,21 24.5,16 24.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+        <path d="M16 10.5 C19.5 10.5,22 13,22 16 C22 19,19.5 21.5,16 21.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.5"/>
+        <circle cx="16" cy="16" r="2.8" fill="currentColor"/>
+      </svg>
+    </span>
+    <span class="logo-wordmark">OKO-TO</span>
+  </a>
+  <div class="nav__links">
+    <a href="#how-it-works" class="nav__link">How it works</a>
+    <a href="#sellers" class="nav__link">For sellers</a>
+    <a href="#buyers" class="nav__link">For buyers</a>
+    <a href="#waitlist" class="nav__cta-link">Join waitlist</a>
+  </div>
+  <button class="nav__hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <button class="mobile-menu__close" id="menuClose" aria-label="Close menu">&#x2715;</button>
+  <a href="#how-it-works" class="mobile-menu__link" data-close>How it works</a>
+  <a href="#sellers" class="mobile-menu__link" data-close>For sellers</a>
+  <a href="#buyers" class="mobile-menu__link" data-close>For buyers</a>
+  <a href="#waitlist" class="mobile-menu__link mobile-menu__link--cta" data-close>Join the waitlist</a>
+</div>
+<div class="mobile-menu__overlay" id="menuOverlay"></div>
+
+
+<!-- ══ HERO ══ -->
+<section class="hero">
+  <div class="hero__bg-ring hero__bg-ring--1" aria-hidden="true"></div>
+  <div class="hero__bg-ring hero__bg-ring--2" aria-hidden="true"></div>
+  <div class="hero__bg-ring hero__bg-ring--3" aria-hidden="true"></div>
+  <div class="container hero__inner">
+    <div class="hero__text">
+      <div class="hero__badge">
+        <span class="hero__badge-dot" aria-hidden="true"></span>
+        Now accepting sellers &mdash; join the waitlist
+      </div>
+      <h1 class="hero__headline">Sell with trust.<br/><em>Buy with protection.</em></h1>
+      <p class="hero__sub">OKO-TO lets WhatsApp and Instagram sellers accept protected payments &mdash; so buyers can pay with confidence, and sellers can close more sales.</p>
+      <div class="hero__actions">
+        <a href="#waitlist" class="btn btn--primary">Join the seller waitlist</a>
+        <a href="#how-it-works" class="btn btn--ghost">See how it works &rarr;</a>
+      </div>
+      <p class="hero__reassurance">Free to join. No card required.</p>
+    </div>
+    <div class="hero__visual" aria-hidden="true">
+      <div class="phone-mockup">
+        <div class="phone-mockup__screen">
+          <div class="chat-bubble chat-bubble--received">
+            <span class="chat-name">Adunola Styles</span>
+            Here's your payment link for the order
+          </div>
+          <div class="payment-card">
+            <div class="payment-card__header">
+              <span class="payment-card__logo-sm">
+                <svg width="13" height="13" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="13.5" stroke="currentColor" stroke-width="2.2"/><path d="M16 7.5 C21 7.5,25 11.5,25 16 C25 20.5,21 24.5,16 24.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/><circle cx="16" cy="16" r="2.8" fill="currentColor"/></svg>
+                OKO-TO
+              </span>
+              <span class="payment-card__shield">Protected</span>
+            </div>
+            <div class="payment-card__body">
+              <div class="payment-card__seller">Adunola Styles</div>
+              <div class="payment-card__item">Ankara Two-Piece Set &mdash; Size M</div>
+              <div class="payment-card__amount">&#8358; 28,500</div>
+            </div>
+            <div class="payment-card__notice">Your payment is protected until delivery is confirmed.</div>
+            <div class="payment-card__btn">Pay Safely Now</div>
+          </div>
+          <div class="chat-bubble chat-bubble--sent">Payment sent. Waiting for delivery.</div>
+          <div class="status-bar">
+            <div class="status-step status-step--done"><span class="status-step__dot"></span><span>Paid</span></div>
+            <div class="status-step__line status-step__line--done"></div>
+            <div class="status-step status-step--active"><span class="status-step__dot"></span><span>Delivery</span></div>
+            <div class="status-step__line"></div>
+            <div class="status-step"><span class="status-step__dot"></span><span>Released</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ PROBLEM ══ -->
+<section class="problem" id="problem">
+  <div class="container">
+    <div class="problem__inner">
+      <div class="problem__label">The problem</div>
+      <h2 class="problem__headline">Every day, thousands of naira change hands over DMs &mdash; with no protection on either side.</h2>
+      <div class="problem__cards">
+        <div class="problem__card">
+          <div class="problem__icon-wrap" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>Buyers take blind risks</h3>
+          <p>Sending money to a vendor you found on Instagram &mdash; with no receipt, no recourse, and no way back if things go wrong &mdash; is still the default for most online shopping in Nigeria.</p>
+        </div>
+        <div class="problem__card">
+          <div class="problem__icon-wrap" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M12 8v4l3 3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </div>
+          <h3>Honest sellers lose sales</h3>
+          <p>Trustworthy vendors lose first-time buyers every day because there is no way to tell them apart from bad actors. Without a trust layer, hesitation wins and the sale is lost.</p>
+        </div>
+        <div class="problem__card">
+          <div class="problem__icon-wrap" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 3l18 18M9 9a3 3 0 104.24 4.24" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M10.58 6A7 7 0 0121 17.42" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </div>
+          <h3>Trust is broken by default</h3>
+          <p>The DM-to-transfer pipeline is fast but fragile. One bad experience spreads widely, and everyone pays the price &mdash; including the vendors who always deliver.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ HOW IT WORKS ══ -->
+<section class="how" id="how-it-works">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">How it works</div>
+      <h2 class="section-headline">Four steps. Full protection.</h2>
+      <p class="section-sub">OKO-TO sits between the DM and the transfer &mdash; keeping both the buyer and the seller safe throughout.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step__number" aria-hidden="true">01</div>
+        <div class="step__icon-wrap" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2.5" stroke="currentColor" stroke-width="1.8"/><path d="M8 10h8M8 14h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </div>
+        <h3 class="step__title">Seller creates a protected link</h3>
+        <p class="step__desc">The seller sets the item, price, and delivery terms, then generates a unique OKO-TO payment link in seconds. No app download needed for either party.</p>
+      </div>
+      <div class="step__connector" aria-hidden="true"></div>
+      <div class="step">
+        <div class="step__number" aria-hidden="true">02</div>
+        <div class="step__icon-wrap" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M9 12l2.5 2.5L15 9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3 class="step__title">Buyer pays through the link</h3>
+        <p class="step__desc">The buyer clicks the link, reviews the agreed terms, and completes payment. The payment is protected until the buyer confirms delivery or the agreed release condition is met.</p>
+      </div>
+      <div class="step__connector" aria-hidden="true"></div>
+      <div class="step">
+        <div class="step__number" aria-hidden="true">03</div>
+        <div class="step__icon-wrap" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4L19 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3 class="step__title">Seller delivers the item</h3>
+        <p class="step__desc">The seller ships or delivers, knowing the payment is secured. The buyer knows exactly what was agreed before anything moves.</p>
+      </div>
+      <div class="step__connector" aria-hidden="true"></div>
+      <div class="step">
+        <div class="step__number" aria-hidden="true">04</div>
+        <div class="step__icon-wrap" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+        </div>
+        <h3 class="step__title">Buyer confirms. Funds are released.</h3>
+        <p class="step__desc">Once the buyer confirms delivery, the funds are released to the seller. If either side has a concern, a dispute can be raised and reviewed fairly.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ SELLERS ══ -->
+<section class="sellers" id="sellers">
+  <div class="container">
+    <div class="sellers__inner">
+      <div class="sellers__text">
+        <div class="section-label section-label--light">For sellers</div>
+        <h2 class="sellers__headline">Close more sales.<br/>Build real trust.</h2>
+        <p class="sellers__sub">When buyers know their payment is protected, they are far more likely to complete a purchase &mdash; especially first-time customers who do not know you yet.</p>
+        <ul class="sellers__list">
+          <li><span class="sellers__check" aria-hidden="true">&#x2713;</span>Win over first-time buyers who would otherwise scroll past</li>
+          <li><span class="sellers__check" aria-hidden="true">&#x2713;</span>Share payment links directly in WhatsApp DMs and Instagram stories</li>
+          <li><span class="sellers__check" aria-hidden="true">&#x2713;</span>Remove the payment anxiety that kills deals at the last step</li>
+          <li><span class="sellers__check" aria-hidden="true">&#x2713;</span>A protected payment link signals professionalism before a word is spoken</li>
+          <li><span class="sellers__check" aria-hidden="true">&#x2713;</span>Dispute support protects you from unfair claims as well</li>
+        </ul>
+        <a href="#waitlist" class="btn btn--primary">Get early seller access</a>
+      </div>
+      <div class="sellers__visual" aria-hidden="true">
+        <div class="sellers__trust-card sellers__trust-card--tl">
+          <div class="sellers__trust-icon">&#128274;</div>
+          <div class="sellers__trust-text">
+            <strong>Protected by design</strong>
+            <p>Buyers pay with confidence knowing the terms are set before money moves.</p>
+          </div>
+        </div>
+        <div class="sellers__phone-wrap">
+          <div class="sellers__phone">
+            <div class="sellers__phone-header">
+              <div class="sellers__profile-avatar"></div>
+              <div class="sellers__profile-info">
+                <span class="sellers__profile-name">Kemi&rsquo;s Thrift</span>
+                <span class="sellers__profile-tag">Protected payment link</span>
+              </div>
+            </div>
+            <div class="sellers__phone-body">
+              <div class="sellers__item-row">
+                <div class="sellers__item-thumb"></div>
+                <div class="sellers__item-detail">
+                  <div class="sellers__item-name">Y2K Denim Jacket &mdash; Size S</div>
+                  <div class="sellers__item-price">&#8358; 14,000</div>
+                </div>
+              </div>
+              <div class="sellers__link-row">
+                <div class="sellers__link-chip">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                  oko-to.app/pay/kemi-thrift
+                </div>
+                <button class="sellers__share-btn">Share</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="sellers__trust-card sellers__trust-card--br">
+          <div class="sellers__trust-icon">&#9878;&#65039;</div>
+          <div class="sellers__trust-text">
+            <strong>Dispute support</strong>
+            <p>If something goes wrong, both sides get a fair hearing &mdash; not silence.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ BUYERS ══ -->
+<section class="buyers" id="buyers">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">For buyers</div>
+      <h2 class="section-headline">Don&rsquo;t transfer blindly.<br/>Pay with protection.</h2>
+      <p class="section-sub">Your payment is protected until delivery is confirmed. If something goes wrong, you have a clear path to resolution.</p>
+    </div>
+    <div class="buyers__grid">
+      <div class="buyers__card">
+        <div class="buyers__card-icon" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+        </div>
+        <h3>Payment protected until delivery</h3>
+        <p>Your payment is protected until you confirm delivery or the agreed release condition is met. Funds are not released to the seller before that point.</p>
+      </div>
+      <div class="buyers__card">
+        <div class="buyers__card-icon" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2.5" stroke="currentColor" stroke-width="1.8"/><path d="M8 10h8M8 14h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </div>
+        <h3>Clear terms before you pay</h3>
+        <p>Every payment link includes the item details, price, and delivery window &mdash; all agreed upfront, before any money changes hands.</p>
+      </div>
+      <div class="buyers__card">
+        <div class="buyers__card-icon" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M9 12h6M12 9v6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </div>
+        <h3>Raise a dispute if needed</h3>
+        <p>Received the wrong item, or nothing at all? OKO-TO&rsquo;s dispute process gives you a structured path to resolution &mdash; not just a blocked contact.</p>
+      </div>
+      <div class="buyers__card">
+        <div class="buyers__card-icon" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M14 2v6h6M9 13h6M9 17h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </div>
+        <h3>Transaction record included</h3>
+        <p>Every OKO-TO transaction generates a digital record you can reference. No more relying on screenshot chains as your only proof of payment.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ TRUST ══ -->
+<section class="trust" id="trust">
+  <div class="container">
+    <div class="trust__inner">
+      <div class="trust__text">
+        <div class="section-label">Why OKO-TO</div>
+        <h2 class="trust__headline">Built for the way Nigerians actually buy and sell.</h2>
+        <p class="trust__sub">OKO-TO is not a global payment platform retrofitted for Nigeria. It is designed from the ground up for trade that happens over WhatsApp threads, Instagram DMs, and story replies &mdash; with the protections that context demands.</p>
+      </div>
+      <div class="trust__pillars">
+        <div class="trust__pillar">
+          <div class="trust__pillar-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="3" y="11" width="18" height="11" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M7 11V7a5 5 0 0110 0v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </div>
+          <div><strong>Secure payment infrastructure</strong><p>Payments are processed through regulated infrastructure. Your money is handled formally, with a clear record at every step.</p></div>
+        </div>
+        <div class="trust__pillar">
+          <div class="trust__pillar-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div><strong>Transparent release conditions</strong><p>The terms for fund release are set at the time of payment. No ambiguity, no discretion after the fact.</p></div>
+        </div>
+        <div class="trust__pillar">
+          <div class="trust__pillar-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </div>
+          <div><strong>Impartial dispute resolution</strong><p>When a dispute is raised, both buyer and seller are heard. Neither side is ignored or left without a path forward.</p></div>
+        </div>
+        <div class="trust__pillar">
+          <div class="trust__pillar-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.8"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </div>
+          <div><strong>Made for Nigerian social commerce</strong><p>We understand fashion vendors, hair sellers, gadget resellers, and thrift curators &mdash; because that is exactly who we are building for.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ USE CASES ══ -->
+<section class="usecases" id="usecases">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">Who it&rsquo;s for</div>
+      <h2 class="section-headline">Every seller who closes deals over a DM.</h2>
+      <p class="section-sub">If you sell through WhatsApp or Instagram, OKO-TO was built for your category.</p>
+    </div>
+    <div class="usecases__grid">
+      <div class="usecase-card">
+        <div class="usecase-card__icon" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M20.38 3.46L16 2a4 4 0 01-8 0L3.62 3.46a2 2 0 00-1.34 2.23l.58 3.57a11 11 0 00.16 9.98 4.93 4.93 0 003.39 2.49A9.01 9.01 0 0012 22a9 9 0 005.59-2.27 4.9 4.9 0 003.39-2.49 11 11 0 00.15-9.98l.58-3.57a2 2 0 00-1.33-2.23z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+        </div>
+        <h3>Fashion sellers</h3>
+        <p>Ankara sets, ready-to-wear, Aso-oke &mdash; sell directly from your Instagram page without buyers hesitating over payment.</p>
+      </div>
+      <div class="usecase-card">
+        <div class="usecase-card__icon" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2a5 5 0 015 5c0 3.5-5 11-5 11S7 10.5 7 7a5 5 0 015-5z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="12" cy="7" r="2" stroke="currentColor" stroke-width="1.5"/></svg>
+        </div>
+        <h3>Hair &amp; beauty vendors</h3>
+        <p>Wigs, extensions, skincare, and makeup &mdash; high-value orders call for protection on both sides of the transaction.</p>
+      </div>
+      <div class="usecase-card">
+        <div class="usecase-card__icon" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 13l2-5h14l2 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 13v5a1 1 0 001 1h16a1 1 0 001-1v-5H3z" stroke="currentColor" stroke-width="1.8"/><path d="M8 18v2M16 18v2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </div>
+        <h3>Sneaker resellers</h3>
+        <p>Authentics, grades, imports &mdash; a protected payment link signals that the product is exactly what you say it is.</p>
+      </div>
+      <div class="usecase-card">
+        <div class="usecase-card__icon" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="5" y="2" width="14" height="20" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M12 18h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </div>
+        <h3>Gadget sellers</h3>
+        <p>Phones, earbuds, accessories &mdash; buyers need confidence before sending a large sum for something they have not yet held.</p>
+      </div>
+      <div class="usecase-card">
+        <div class="usecase-card__icon" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M3 6h18M16 10a4 4 0 01-8 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </div>
+        <h3>Thrift &amp; vintage</h3>
+        <p>UK-used, America-used, curated pieces &mdash; convert followers who love your picks but hesitate when it comes to payment.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ WAITLIST ══ -->
+<section class="waitlist" id="waitlist">
+  <div class="waitlist__bg-ring" aria-hidden="true"></div>
+  <div class="container">
+    <div class="waitlist__inner">
+      <div class="waitlist__text">
+        <div class="section-label section-label--dark">Early access</div>
+        <h2 class="waitlist__headline">Start selling with protection.</h2>
+        <p class="waitlist__sub">Join the OKO-TO waitlist. We are onboarding sellers first &mdash; get early access, dedicated setup support, and zero platform fees for your first month.</p>
+        <ul class="waitlist__perks">
+          <li>
+            <span class="waitlist__perk-icon" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            Early seller access before the public launch
+          </li>
+          <li>
+            <span class="waitlist__perk-icon" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            Zero platform fees on your first month of transactions
+          </li>
+          <li>
+            <span class="waitlist__perk-icon" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            Onboarding support directly from our team
+          </li>
+          <li>
+            <span class="waitlist__perk-icon" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            Input into features being built for your category
+          </li>
+        </ul>
+      </div>
+
+      <div class="waitlist__form-wrap">
+        <form class="waitlist__form" id="waitlistForm" novalidate>
+          <div class="form-group">
+            <label for="wl-name">Your name</label>
+            <input type="text" id="wl-name" name="name" placeholder="e.g. Adaeze Nwosu" autocomplete="name" required />
+            <span class="form-error" id="nameError" role="alert"></span>
+          </div>
+          <div class="form-group">
+            <label for="wl-phone">WhatsApp number</label>
+            <input type="tel" id="wl-phone" name="phone" placeholder="e.g. 08012345678" autocomplete="tel" required />
+            <span class="form-error" id="phoneError" role="alert"></span>
+          </div>
+          <div class="form-group">
+            <label for="wl-category">What do you sell?</label>
+            <div class="select-wrap">
+              <select id="wl-category" name="category" required>
+                <option value="" disabled selected>Select your category</option>
+                <option value="fashion">Fashion &amp; Clothing</option>
+                <option value="hair">Hair &amp; Wigs</option>
+                <option value="beauty">Beauty &amp; Skincare</option>
+                <option value="sneakers">Sneakers &amp; Footwear</option>
+                <option value="gadgets">Phones &amp; Gadgets</option>
+                <option value="thrift">Thrift &amp; Vintage</option>
+                <option value="other">Something else</option>
+              </select>
+              <span class="select-arrow" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+            </div>
+            <span class="form-error" id="categoryError" role="alert"></span>
+          </div>
+          <div class="form-group">
+            <label for="wl-instagram">Instagram handle <span class="form-optional">(optional)</span></label>
+            <div class="input-prefix-wrap">
+              <span class="input-prefix" aria-hidden="true">@</span>
+              <input type="text" id="wl-instagram" name="instagram" placeholder="yourstorename" autocomplete="off" autocapitalize="none" />
+            </div>
+          </div>
+          <button type="submit" class="btn btn--primary btn--full" id="submitBtn">
+            <span id="btnText">Join the OKO-TO waitlist</span>
+            <span id="btnSpinner" class="btn-spinner" aria-hidden="true" style="display:none"></span>
+          </button>
+          <p class="waitlist__privacy">We will not share your details or send unsolicited messages.</p>
+        </form>
+
+        <div class="waitlist__success" id="waitlistSuccess" style="display:none" role="status">
+          <div class="success-ring" aria-hidden="true">
+            <svg width="52" height="52" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="22" stroke="currentColor" stroke-width="2"/><path d="M15 24l7 7 11-14" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>You are on the list.</h3>
+          <p>We will reach out to you on WhatsApp as soon as your early access is ready. Thank you for joining OKO-TO.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ FOOTER ══ -->
+<footer class="footer">
+  <div class="container footer__inner">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <a href="#" class="nav__logo" aria-label="OKO-TO — Back to top">
+          <span class="logo-mark" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
+              <circle cx="16" cy="16" r="13.5" stroke="currentColor" stroke-width="2"/>
+              <path d="M16 7.5 C21 7.5,25 11.5,25 16 C25 20.5,21 24.5,16 24.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+              <path d="M16 10.5 C19.5 10.5,22 13,22 16 C22 19,19.5 21.5,16 21.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.5"/>
+              <circle cx="16" cy="16" r="2.8" fill="currentColor"/>
+            </svg>
+          </span>
+          <span class="logo-wordmark">OKO-TO</span>
+        </a>
+        <p class="footer__tagline">Protected payment links for WhatsApp and Instagram sellers.</p>
+      </div>
+      <nav class="footer__nav" aria-label="Footer navigation">
+        <div class="footer__nav-col">
+          <h4 class="footer__nav-heading">Product</h4>
+          <a href="#how-it-works">How it works</a>
+          <a href="#sellers">For sellers</a>
+          <a href="#buyers">For buyers</a>
+        </div>
+        <div class="footer__nav-col">
+          <h4 class="footer__nav-heading">Company</h4>
+          <a href="#trust">Why OKO-TO</a>
+          <a href="#usecases">Use cases</a>
+          <a href="#waitlist">Join waitlist</a>
+        </div>
+      </nav>
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__copy">&copy; 2025 OKO-TO. All rights reserved.</p>
+      <div class="footer__legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Use</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+(function(){
+  'use strict';
+
+  document.addEventListener('DOMContentLoaded', function(){
+
+    /* ── Mobile menu ── */
+    var hamburger   = document.getElementById('hamburger');
+    var menuClose   = document.getElementById('menuClose');
+    var mobileMenu  = document.getElementById('mobileMenu');
+    var menuOverlay = document.getElementById('menuOverlay');
+
+    function openMenu(){
+      mobileMenu.classList.add('open');
+      mobileMenu.setAttribute('aria-hidden','false');
+      menuOverlay.classList.add('open');
+      document.body.style.overflow='hidden';
+      hamburger.setAttribute('aria-expanded','true');
+    }
+    function closeMenu(){
+      mobileMenu.classList.remove('open');
+      mobileMenu.setAttribute('aria-hidden','true');
+      menuOverlay.classList.remove('open');
+      document.body.style.overflow='';
+      hamburger.setAttribute('aria-expanded','false');
+    }
+    if(hamburger)   hamburger.addEventListener('click', openMenu);
+    if(menuClose)   menuClose.addEventListener('click', closeMenu);
+    if(menuOverlay) menuOverlay.addEventListener('click', closeMenu);
+    document.querySelectorAll('[data-close]').forEach(function(el){
+      el.addEventListener('click', closeMenu);
+    });
+    document.addEventListener('keydown', function(e){
+      if(e.key==='Escape' && mobileMenu.classList.contains('open')) closeMenu();
+    });
+
+    /* ── Nav shadow on scroll ── */
+    var nav = document.getElementById('nav');
+    function updateNav(){
+      if(!nav) return;
+      nav.classList.toggle('nav--scrolled', window.scrollY > 24);
+    }
+    window.addEventListener('scroll', updateNav, {passive:true});
+    updateNav();
+
+    /* ── Smooth anchor scroll ── */
+    var NAV_H = 68;
+    document.querySelectorAll('a[href^="#"]').forEach(function(link){
+      link.addEventListener('click', function(e){
+        var hash = link.getAttribute('href');
+        if(!hash || hash==='#') return;
+        var target = document.querySelector(hash);
+        if(!target) return;
+        e.preventDefault();
+        var top = target.getBoundingClientRect().top + window.scrollY - NAV_H;
+        window.scrollTo({top:top, behavior:'smooth'});
+      });
+    });
+
+    /* ── Scroll fade-in ── */
+    var sel = '.problem__card,.step,.buyers__card,.trust__pillar,.usecase-card,.sellers__list li,.waitlist__perks li';
+    if('IntersectionObserver' in window){
+      var obs = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if(entry.isIntersecting){
+            entry.target.classList.add('visible');
+            obs.unobserve(entry.target);
+          }
+        });
+      },{threshold:0.1, rootMargin:'0px 0px -36px 0px'});
+      document.querySelectorAll(sel).forEach(function(el,i){
+        el.classList.add('fade-in');
+        var d=i%4;
+        if(d===1) el.classList.add('fade-in-d1');
+        if(d===2) el.classList.add('fade-in-d2');
+        if(d===3) el.classList.add('fade-in-d3');
+        obs.observe(el);
+      });
+    } else {
+      document.querySelectorAll(sel).forEach(function(el){ el.classList.add('visible'); });
+    }
+
+    /* ── Waitlist form ── */
+    var form       = document.getElementById('waitlistForm');
+    var successBox = document.getElementById('waitlistSuccess');
+    var submitBtn  = document.getElementById('submitBtn');
+    var btnText    = document.getElementById('btnText');
+    var btnSpinner = document.getElementById('btnSpinner');
+    if(!form) return;
+
+    function getVal(id){ var el=document.getElementById(id); return el?el.value.trim():''; }
+    function setError(fieldId, errorId, msg){
+      var f=document.getElementById(fieldId);
+      var e=document.getElementById(errorId);
+      if(f){ f.classList.toggle('error',!!msg); if(msg) f.setAttribute('aria-invalid','true'); else f.removeAttribute('aria-invalid'); }
+      if(e) e.textContent=msg||'';
+    }
+    function clearErrors(){
+      setError('wl-name','nameError','');
+      setError('wl-phone','phoneError','');
+      setError('wl-category','categoryError','');
+    }
+    function validate(){
+      var ok=true;
+      clearErrors();
+      var name=getVal('wl-name');
+      if(!name||name.length<2){ setError('wl-name','nameError','Please enter your name.'); ok=false; }
+      var phone=getVal('wl-phone').replace(/[\s\-\(\)]/g,'');
+      if(!phone){ setError('wl-phone','phoneError','Please enter your WhatsApp number.'); ok=false; }
+      else if(!/^(?:0[7-9]\d{9}|\+234[7-9]\d{9})$/.test(phone)){ setError('wl-phone','phoneError','Enter a valid Nigerian mobile number e.g. 08012345678.'); ok=false; }
+      if(!getVal('wl-category')){ setError('wl-category','categoryError','Please select what you sell.'); ok=false; }
+      return ok;
+    }
+    function setLoading(on){
+      submitBtn.disabled=on;
+      if(btnText)    btnText.textContent=on?'Submitting\u2026':'Join the OKO-TO waitlist';
+      if(btnSpinner) btnSpinner.style.display=on?'inline-block':'none';
+    }
+
+    /* Clear field error as user types */
+    ['wl-name','wl-phone','wl-category'].forEach(function(id){
+      var el=document.getElementById(id);
+      if(!el) return;
+      el.addEventListener('input', function(){
+        el.classList.remove('error');
+        el.removeAttribute('aria-invalid');
+        var errId=id.replace('wl-','')+'Error';
+        var errEl=document.getElementById(errId);
+        if(errEl) errEl.textContent='';
+      });
+    });
+
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      if(!validate()){
+        var first=form.querySelector('[aria-invalid="true"]');
+        if(first) first.focus();
+        return;
+      }
+      setLoading(true);
+      /* Replace setTimeout with a real fetch() to your API endpoint */
+      setTimeout(function(){
+        setLoading(false);
+        form.style.display='none';
+        if(successBox){
+          successBox.style.display='flex';
+          successBox.scrollIntoView({behavior:'smooth',block:'center'});
+        }
+      }, 1500);
+    });
+
+  });
+})();
+</script>
+</body>
+</html>
