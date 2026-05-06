@@ -437,7 +437,31 @@ button{cursor:pointer;font-family:inherit}
         </button>
         <div class="faq-item__body" role="region">
           <div class="faq-item__body-inner">
-            <p class="faq-item__a">Payments are processed through <strong>secure payment infrastructure</strong>. OKO-TO uses escrow-style protection, meaning funds are not released to the seller until the agreed conditions are met. The terms for release are set at the time of payment.</p>
+            <p class="faq-item__a">Payments are processed through secure payment infrastructure. OKO-TO uses escrow-style protection, meaning the funds are temporarily held and not released to the seller until the agreed conditions are met. The release terms are set at the time the payment link is created.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-item__trigger" aria-expanded="false">
+          <span class="faq-item__q">How long are funds held?</span>
+          <span class="faq-item__icon" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></span>
+        </button>
+        <div class="faq-item__body" role="region">
+          <div class="faq-item__body-inner">
+            <p class="faq-item__a">Funds are held from the time the buyer pays until delivery is confirmed. The timeline depends on the delivery window agreed in the payment link. After the seller ships and the buyer receives the item, the buyer has a review window to confirm or raise a dispute. If no action is taken after that window, funds are automatically released to the seller.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-item__trigger" aria-expanded="false">
+          <span class="faq-item__q">What if the buyer goes quiet after delivery?</span>
+          <span class="faq-item__icon" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></span>
+        </button>
+        <div class="faq-item__body" role="region">
+          <div class="faq-item__body-inner">
+            <p class="faq-item__a">The buyer has a set review window after delivery. If they do not confirm or raise a dispute within that window, the funds are automatically released to the seller. Sellers are not left waiting indefinitely because a buyer stopped responding.</p>
           </div>
         </div>
       </div>
@@ -449,19 +473,7 @@ button{cursor:pointer;font-family:inherit}
         </button>
         <div class="faq-item__body" role="region">
           <div class="faq-item__body-inner">
-            <p class="faq-item__a">Funds are released after the buyer confirms delivery, or after the agreed release condition is met. The specific conditions are set when the payment link is created, so both parties know what to expect before any money moves.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-item__trigger" aria-expanded="false">
-          <span class="faq-item__q">What if the buyer does not confirm delivery?</span>
-          <span class="faq-item__icon" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></span>
-        </button>
-        <div class="faq-item__body" role="region">
-          <div class="faq-item__body-inner">
-            <p class="faq-item__a">We are designing a clear resolution window into the product. If a buyer does not confirm within the agreed timeframe and has not raised a dispute, the transaction will move to a review state. The specific rules will be communicated clearly to both parties upfront.</p>
+            <p class="faq-item__a">Funds are released when the buyer confirms delivery, or when the buyer review window expires without a dispute being raised. Both conditions are defined when the payment link is created, so both sides know the rules before any money moves.</p>
           </div>
         </div>
       </div>
@@ -484,19 +496,31 @@ button{cursor:pointer;font-family:inherit}
         </button>
         <div class="faq-item__body" role="region">
           <div class="faq-item__body-inner">
-            <p class="faq-item__a">If something goes wrong, either side can raise a dispute. OKO-TO will review the transaction details and available evidence before deciding the next step. Disputes are reviewed fairly &mdash; both buyer and seller are heard.</p>
+            <p class="faq-item__a">If something goes wrong, either side can raise a dispute. OKO-TO will review the transaction details and available evidence before deciding what happens next. Disputes are reviewed fairly. Both buyer and seller are heard.</p>
           </div>
         </div>
       </div>
 
       <div class="faq-item">
         <button class="faq-item__trigger" aria-expanded="false">
-          <span class="faq-item__q">What evidence can be used in a dispute?</span>
+          <span class="faq-item__q">Who handles disputes and how are they decided?</span>
           <span class="faq-item__icon" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></span>
         </button>
         <div class="faq-item__body" role="region">
           <div class="faq-item__body-inner">
-            <p class="faq-item__a">Evidence may include order details, screenshots, delivery proof, waybill information, photos, videos, or messages between buyer and seller. The more clearly the original order terms were set, the easier it is to resolve any dispute.</p>
+            <p class="faq-item__a">Disputes are reviewed by OKO-TO using the evidence submitted by both sides. Both the buyer and seller can provide proof. Payout decisions are based on the original transaction terms and the evidence provided. Neither side has an automatic advantage.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-item__trigger" aria-expanded="false">
+          <span class="faq-item__q">What counts as delivery proof?</span>
+          <span class="faq-item__icon" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></span>
+        </button>
+        <div class="faq-item__body" role="region">
+          <div class="faq-item__body-inner">
+            <p class="faq-item__a">Accepted delivery proof includes: dispatch receipt, waybill, tracking number, rider confirmation, or a delivery photo. The more documentation a seller keeps throughout the process, the stronger their position in any dispute. Always get something in writing when handing over an item.</p>
           </div>
         </div>
       </div>
@@ -509,6 +533,53 @@ button{cursor:pointer;font-family:inherit}
         <div class="faq-item__body" role="region">
           <div class="faq-item__body-inner">
             <p class="faq-item__a">Neither side. That is the point. Disputes are reviewed based on the agreed terms and whatever evidence is available. Both buyer and seller have a voice. Honest sellers are protected from false claims. Buyers are protected from non-delivery.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- SPECIAL CASES -->
+    <div class="faq-category fade-in fade-in-d3">
+      <div class="faq-category__header">
+        <div class="faq-category__icon" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+        </div>
+        <h2 class="faq-category__title">Special cases</h2>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-item__trigger" aria-expanded="false">
+          <span class="faq-item__q">What if the item is custom-made?</span>
+          <span class="faq-item__icon" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></span>
+        </button>
+        <div class="faq-item__body" role="region">
+          <div class="faq-item__body-inner">
+            <p class="faq-item__a">Custom items like wigs, tailoring, made-to-order pieces, and personalised products can be sold through OKO-TO. The seller should clearly describe the item and production timeline in the payment link before the buyer pays. What was agreed is what both sides are held to. If the custom item is not delivered as described, the buyer can raise a dispute.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-item__trigger" aria-expanded="false">
+          <span class="faq-item__q">Can dropshippers use OKO-TO?</span>
+          <span class="faq-item__icon" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></span>
+        </button>
+        <div class="faq-item__body" role="region">
+          <div class="faq-item__body-inner">
+            <p class="faq-item__a">Yes. Dropshippers and sellers who source items can use OKO-TO, but they must clearly state delivery timelines and whether the item is being sourced from a third-party supplier before the buyer pays. OKO-TO supports two order types: in-stock items and sourced items. Buyers see the order type and full delivery terms before paying.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-item__trigger" aria-expanded="false">
+          <span class="faq-item__q">What are the fees?</span>
+          <span class="faq-item__icon" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></span>
+        </button>
+        <div class="faq-item__body" role="region">
+          <div class="faq-item__body-inner">
+            <p class="faq-item__a">OKO-TO is currently in early access. Sellers who join the waitlist and get selected for early access will have zero platform fees for their first month. After that, we will introduce a small transaction fee per completed order. We will be clear about the fee structure before it goes live. Nobody will be surprised by a charge they did not know about.</p>
           </div>
         </div>
       </div>
