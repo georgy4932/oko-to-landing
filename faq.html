@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="OKO-TO FAQ — How protected payments work for WhatsApp and Instagram sellers in Nigeria." />
+  <title>FAQ — OKO-TO Protected Payments</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
+<style>
+/* ─────────────────────────────────────────
+   OKO-TO  |  faq.html  |  All styles
+───────────────────────────────────────── */
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --green-900:#0f2318;
+  --green-800:#163020;
+  --green-700:#1d4228;
+  --green-600:#255535;
+  --green-500:#2d6940;
+  --green-400:#3d8a55;
+  --green-300:#6bb580;
+  --green-100:#d4ead9;
+  --green-50:#edf6ef;
+  --amber:#d4872a;
+  --amber-lt:#e8a84f;
+  --cream:#faf7f2;
+  --cream-dark:#f0ebe2;
+  --white:#ffffff;
+  --ink-900:#0f1a12;
+  --ink-400:#5a7561;
+  --ink-200:#a8bfac;
+  --radius-sm:10px;
+  --radius-md:16px;
+  --radius-lg:24px;
+  --shadow-sm:0 2px 10px rgba(15,35,24,.08);
+  --shadow-md:0 6px 28px rgba(15,35,24,.11);
+  --transition:0.25s cubic-bezier(0.4,0,0.2,1);
+  --nav-h:68px;
+}
+
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'DM Sans',system-ui,sans-serif;background:var(--cream);color:var(--ink-900);line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+button{cursor:pointer;font-family:inherit}
+
+.container{width:100%;max-width:860px;margin:0 auto;padding:0 24px}
+.container--wide{max-width:1120px}
+
+/* ── Buttons ── */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 28px;border-radius:100px;font-size:.93rem;font-weight:600;border:none;transition:all var(--transition);white-space:nowrap;cursor:pointer;text-decoration:none}
+.btn--primary{background:var(--amber);color:var(--white);box-shadow:0 4px 18px rgba(212,135,42,.32)}
+.btn--primary:hover{background:var(--amber-lt);transform:translateY(-2px);box-shadow:0 8px 28px rgba(212,135,42,.42)}
+.btn--ghost-dark{background:transparent;color:var(--cream);border:1.5px solid rgba(255,255,255,.28)}
+.btn--ghost-dark:hover{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.5)}
+
+/* ── NAV ── */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 28px;background:rgba(15,35,24,.94);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.055);transition:box-shadow var(--transition)}
+.nav--scrolled{box-shadow:0 4px 32px rgba(0,0,0,.22)}
+.nav__logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo-mark{color:var(--amber);display:flex;align-items:center;flex-shrink:0}
+.logo-wordmark{font-family:'DM Serif Display',Georgia,serif;font-size:1.3rem;letter-spacing:.05em;color:var(--cream)}
+.nav__links{display:flex;align-items:center;gap:28px}
+.nav__link{font-size:.88rem;font-weight:500;color:rgba(250,247,242,.68);transition:color var(--transition)}
+.nav__link:hover{color:var(--cream)}
+.nav__link--active{color:var(--cream)}
+.nav__cta{padding:8px 20px;border-radius:100px;background:var(--amber);color:var(--white);font-size:.86rem;font-weight:600;transition:all var(--transition)}
+.nav__cta:hover{background:var(--amber-lt)}
+.nav__hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;padding:8px}
+.nav__hamburger span{display:block;width:22px;height:2px;background:var(--cream);border-radius:2px}
+
+/* Mobile menu */
+.mobile-menu{position:fixed;top:0;right:-100%;width:80%;max-width:320px;height:100%;background:var(--green-900);z-index:200;display:flex;flex-direction:column;padding:84px 32px 40px;gap:30px;transition:right .38s cubic-bezier(.4,0,.2,1);box-shadow:-8px 0 40px rgba(0,0,0,.3)}
+.mobile-menu.open{right:0}
+.mobile-menu__close{position:absolute;top:20px;right:20px;background:none;border:none;color:rgba(250,247,242,.7);font-size:1.1rem;padding:10px;line-height:1}
+.mobile-menu__link{font-size:1.08rem;font-weight:500;color:rgba(250,247,242,.75);transition:color var(--transition)}
+.mobile-menu__link:hover{color:var(--cream)}
+.mobile-menu__link--cta{margin-top:10px;padding:14px 24px;background:var(--amber);color:var(--white)!important;border-radius:100px;text-align:center;font-weight:600}
+.mobile-menu__overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:150;opacity:0;pointer-events:none;transition:opacity .38s}
+.mobile-menu__overlay.open{opacity:1;pointer-events:all}
+
+/* ── HERO ── */
+.hero{background:var(--green-900);padding-top:calc(var(--nav-h) + 64px);padding-bottom:72px;position:relative;overflow:hidden;text-align:center}
+.hero__ring{position:absolute;border-radius:50%;border:1px solid rgba(255,255,255,.035);pointer-events:none}
+.hero__ring--1{width:600px;height:600px;top:-200px;right:-150px}
+.hero__ring--2{width:380px;height:380px;top:-80px;right:-40px;border-color:rgba(212,135,42,.06)}
+.hero__ring--3{width:280px;height:280px;bottom:-60px;left:-80px;border-color:rgba(255,255,255,.04)}
+.hero__label{display:inline-block;font-size:.72rem;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--amber-lt);background:rgba(212,135,42,.13);border:1px solid rgba(212,135,42,.28);padding:4px 14px;border-radius:100px;margin-bottom:20px}
+.hero__headline{font-family:'DM Serif Display',Georgia,serif;font-size:clamp(2.2rem,5vw,3.2rem);color:var(--cream);line-height:1.1;margin-bottom:16px}
+.hero__headline em{font-style:italic;color:var(--amber-lt)}
+.hero__sub{color:rgba(250,247,242,.65);font-size:1.05rem;line-height:1.72;max-width:520px;margin:0 auto 32px}
+.hero__cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+
+/* ── INTRO ── */
+.intro{background:var(--white);padding:56px 0;border-bottom:1px solid rgba(15,35,24,.06)}
+.intro__inner{max-width:640px;margin:0 auto;text-align:center}
+.intro__text{font-size:1.05rem;color:var(--ink-400);line-height:1.78}
+.intro__text strong{color:var(--ink-900);font-weight:600}
+
+/* ── FAQ BODY ── */
+.faq-body{padding:72px 0 96px}
+
+/* Category block */
+.faq-category{margin-bottom:56px}
+.faq-category:last-child{margin-bottom:0}
+.faq-category__header{display:flex;align-items:center;gap:14px;margin-bottom:24px}
+.faq-category__icon{width:40px;height:40px;border-radius:10px;background:var(--green-50);border:1px solid var(--green-100);display:flex;align-items:center;justify-content:center;color:var(--green-600);flex-shrink:0}
+.faq-category__title{font-family:'DM Serif Display',Georgia,serif;font-size:1.25rem;color:var(--ink-900)}
+
+/* Accordion items */
+.faq-item{border:1px solid rgba(15,35,24,.07);border-radius:var(--radius-md);background:var(--white);margin-bottom:10px;overflow:hidden;transition:box-shadow var(--transition)}
+.faq-item:hover{box-shadow:var(--shadow-sm)}
+.faq-item.open{box-shadow:var(--shadow-md);border-color:var(--green-100)}
+
+.faq-item__trigger{width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 22px;background:none;border:none;text-align:left;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.faq-item__q{font-size:.95rem;font-weight:600;color:var(--ink-900);line-height:1.4;flex:1}
+.faq-item__icon{width:26px;height:26px;border-radius:50%;background:var(--green-50);border:1px solid var(--green-100);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all var(--transition)}
+.faq-item.open .faq-item__icon{background:var(--green-500);border-color:var(--green-500)}
+.faq-item__icon svg{transition:transform var(--transition);color:var(--green-600)}
+.faq-item.open .faq-item__icon svg{transform:rotate(45deg);color:var(--white)}
+
+.faq-item__body{max-height:0;overflow:hidden;transition:max-height .38s cubic-bezier(.4,0,.2,1)}
+.faq-item__body-inner{padding:0 22px 20px;border-top:1px solid rgba(15,35,24,.05)}
+.faq-item__a{font-size:.92rem;color:var(--ink-400);line-height:1.72;padding-top:16px}
+.faq-item__a strong{color:var(--ink-900);font-weight:600}
+
+/* ── INLINE CTA ── */
+.inline-cta{background:var(--green-50);border:1px solid var(--green-100);border-radius:var(--radius-lg);padding:28px 28px;display:flex;align-items:center;justify-content:space-between;gap:20px;margin:48px 0}
+.inline-cta__text{font-size:.92rem;color:var(--ink-400);line-height:1.5}
+.inline-cta__text strong{display:block;font-family:'DM Serif Display',Georgia,serif;font-size:1.05rem;color:var(--ink-900);margin-bottom:4px}
+
+/* ── FINAL CTA ── */
+.final-cta{background:var(--green-900);padding:80px 0;text-align:center;position:relative;overflow:hidden}
+.final-cta__ring{position:absolute;border-radius:50%;border:1px solid rgba(212,135,42,.06);pointer-events:none}
+.final-cta__ring--1{width:500px;height:500px;top:-180px;right:-120px}
+.final-cta__ring--2{width:300px;height:300px;bottom:-100px;left:-80px;border-color:rgba(255,255,255,.04)}
+.final-cta__label{display:inline-block;font-size:.72rem;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--amber-lt);background:rgba(212,135,42,.13);border:1px solid rgba(212,135,42,.28);padding:4px 14px;border-radius:100px;margin-bottom:20px}
+.final-cta__headline{font-family:'DM Serif Display',Georgia,serif;font-size:clamp(1.8rem,4vw,2.6rem);color:var(--cream);line-height:1.15;margin-bottom:14px}
+.final-cta__sub{color:rgba(250,247,242,.6);font-size:.98rem;max-width:440px;margin:0 auto 32px;line-height:1.7}
+.final-cta__row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+
+/* ── FOOTER ── */
+.footer{background:var(--green-900);border-top:1px solid rgba(255,255,255,.055);padding:32px 0}
+.footer__inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.footer__brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.footer__tagline{font-size:.8rem;color:rgba(250,247,242,.35);margin-top:2px}
+.footer__links{display:flex;gap:20px}
+.footer__links a{font-size:.82rem;color:rgba(250,247,242,.45);transition:color var(--transition)}
+.footer__links a:hover{color:var(--cream)}
+.footer__copy{font-size:.76rem;color:rgba(250,247,242,.25);width:100%}
+
+/* ── ANIMATIONS ── */
+.fade-in{opacity:0;transform:translateY(20px);transition:opacity .55s ease,transform .55s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+.fade-in-d1{transition-delay:.08s}
+.fade-in-d2{transition-delay:.16s}
+.fade-in-d3{transition-delay:.24s}
+
+/* ── RESPONSIVE ── */
+@media(max-width:760px){
+  .nav__links{display:none}
+  .nav__hamburger{display:flex}
+  .inline-cta{flex-direction:column;text-align:center}
+  .footer__inner{flex-direction:column;align-items:flex-start;gap:20px}
+}
+@media(max-width:480px){
+  .container{padding:0 18px}
+  .hero__headline{font-size:2rem}
+  .hero__cta-row{flex-direction:column;align-items:center}
+  .faq-item__trigger{padding:16px 18px}
+  .faq-item__body-inner{padding:0 18px 16px}
+  .final-cta__row{flex-direction:column;align-items:center}
+}
+</style>
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav class="nav" id="nav">
+  <a href="index.html" class="nav__logo" aria-label="OKO-TO Home">
+    <span class="logo-mark" aria-hidden="true">
+      <svg width="30" height="30" viewBox="0 0 32 32" fill="none">
+        <circle cx="16" cy="16" r="13.5" stroke="currentColor" stroke-width="2"/>
+        <path d="M16 7.5 C21 7.5,25 11.5,25 16 C25 20.5,21 24.5,16 24.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+        <path d="M16 10.5 C19.5 10.5,22 13,22 16 C22 19,19.5 21.5,16 21.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.5"/>
+        <circle cx="16" cy="16" r="2.8" fill="currentColor"/>
+      </svg>
+    </span>
+    <span class="logo-wordmark">OKO-TO</span>
+  </a>
+  <div class="nav__links">
+    <a href="index.html" class="nav__link">Home</a>
+    <a href="index.html#how-it-works" class="nav__link">How it works</a>
+    <a href="faq.html" class="nav__link nav__link--active">FAQ</a>
+    <a href="index.html#waitlist" class="nav__cta">Join waitlist</a>
+  </div>
+  <button class="nav__hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <button class="mobile-menu__close" id="menuClose" aria-label="Close menu">&#x2715;</button>
+  <a href="index.html" class="mobile-menu__link" data-close>Home</a>
+  <a href="index.html#how-it-works" class="mobile-menu__link" data-close>How it works</a>
+  <a href="faq.html" class="mobile-menu__link" data-close>FAQ</a>
+  <a href="index.html#waitlist" class="mobile-menu__link mobile-menu__link--cta" data-close>Join the waitlist</a>
+</div>
+<div class="mobile-menu__overlay" id="menuOverlay"></div>
+
+
+<!-- ══ HERO ══ -->
+<section class="hero">
+  <div class="hero__ring hero__ring--1" aria-hidden="true"></div>
+  <div class="hero__ring hero__ring--2" aria-hidden="true"></div>
+  <div class="hero__ring hero__ring--3" aria-hidden="true"></div>
+  <div class="container">
+    <div class="hero__label">Help centre</div>
+    <h1 class="hero__headline">Questions about<br/><em>OKO-TO?</em></h1>
+    <p class="hero__sub">Here is how protected payments work for sellers and buyers &mdash; plain answers, no jargon.</p>
+    <div class="hero__cta-row">
+      <a href="index.html#waitlist" class="btn btn--primary">Join the seller waitlist</a>
+      <a href="index.html#how-it-works" class="btn btn--ghost-dark">See how it works</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ INTRO ══ -->
+<section class="intro">
+  <div class="container">
+    <div class="intro__inner">
+      <p class="intro__text">
+        OKO-TO helps <strong>WhatsApp and Instagram sellers</strong> accept protected payments so buyers can pay with more confidence. Instead of asking a buyer to transfer money blindly, sellers share a protected payment link &mdash; and the payment is only released once delivery is confirmed or the agreed conditions are met.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ FAQ BODY ══ -->
+<section class="faq-body">
+  <div class="container">
+
+    <!-- BASICS -->
+    <div class="faq-category fade-in">
+      <div class="faq-category__header">
+        <div class="faq-category__icon" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M12 8v4l3 3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </div>
+        <h2 class="faq-category__title">The basics</h2>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-item__trigger" aria-expanded="false">
+          <span class="faq-item__q">What is OKO-TO?</span>
+          <span class="faq-item__icon" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></span>
+        </button>
+        <div class="faq-item__body" role="region">
+          <div class="faq-item__body-inner">
+            <p class="faq-item__a">OKO-TO is a protected payment link for WhatsApp and Instagram sellers. Sellers create a payment link for an order, send it to the buyer, and the buyer pays through the link &mdash; instead of sending money blindly to someone they may not know.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-item__trigger" aria-expanded="false">
+          <span class="faq-item__q">How does OKO-TO work?</span>
+          <span class="faq-item__icon" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></span>
+        </button>
+        <div class="faq-item__body" role="region">
+          <div class="faq-item__body-inner">
+            <p class="faq-item__a">A seller creates a protected payment link, the buyer reviews the order details and pays, the seller delivers the item, and the payment is released once delivery is confirmed or the agreed release condition is met.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-item__trigger" aria-expanded="false">
+          <span class="faq-item__q">Is OKO-TO an escrow service?</span>
+          <span class="faq-item__icon" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></span>
+        </button>
+        <div class="faq-item__body" role="region">
+          <div class="faq-item__body-inner">
+            <p class="faq-item__a">OKO-TO uses <strong>escrow-style protection</strong>, but the product is designed to be simpler than traditional escrow. Escrow is the protection mechanism. OKO-TO is the protected checkout experience built specifically for social commerce sellers.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-item__trigger" aria-expanded="false">
+          <span class="faq-item__q">Who is OKO-TO for?</span>
+          <span class="faq-item__icon" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></span>
+        </button>
+        <div class="faq-item__body" role="region">
+          <div class="faq-item__body-inner">
+            <p class="faq-item__a">OKO-TO is for sellers who sell through WhatsApp, Instagram DMs, stories, and social media. It is especially useful for <strong>fashion sellers, thrift vendors, hair and beauty sellers, sneaker resellers, and gadget sellers</strong> &mdash; anyone closing deals over a DM.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- FOR SELLERS -->
+    <div class="faq-category fade-in fade-in-d1">
+      <div class="faq-category__header">
+        <div class="faq-category__icon" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2.5" stroke="currentColor" stroke-width="1.8"/><path d="M8 10h8M8 14h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </div>
+        <h2 class="faq-category__title">For sellers</h2>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-item__trigger" aria-expanded="false">
+          <span class="faq-item__q">Why would a seller use OKO-TO?</span>
+          <span class="faq-item__icon" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></span>
+        </button>
+        <div class="faq-item__body" role="region">
+          <div class="faq-item__body-inner">
+            <p class="faq-item__a">Sellers can use OKO-TO to build trust with first-time buyers. Instead of asking a buyer to transfer directly, the seller sends a protected payment link that makes the buyer feel safer completing the order &mdash; which means fewer abandoned sales.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-item__trigger" aria-expanded="false">
+          <span class="faq-item__q">Does the seller need to download an app?</span>
+          <span class="faq-item__icon" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></span>
+        </button>
+        <div class="faq-item__body" role="region">
+          <div class="faq-item__body-inner">
+            <p class="faq-item__a">We are designing OKO-TO to be as lightweight as possible. Our goal is for sellers to create and share protected payment links without requiring buyers to download anything.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-item__trigger" aria-expanded="false">
+          <span class="faq-item__q">When does the seller get paid?</span>
+          <span class="faq-item__icon" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></span>
+        </button>
+        <div class="faq-item__body" role="region">
+          <div class="faq-item__body-inner">
+            <p class="faq-item__a">The seller gets paid after the buyer confirms delivery, or after the agreed release condition is met. If there is a dispute, the release may be paused until the issue is reviewed.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-item__trigger" aria-expanded="false">
+          <span class="faq-item__q">Who pays the OKO-TO fee?</span>
+          <span class="faq-item__icon" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></span>
+        </button>
+        <div class="faq-item__body" role="region">
+          <div class="faq-item__body-inner">
+            <p class="faq-item__a">This may depend on the seller&rsquo;s setup. In some cases the buyer may pay the protection fee. In other cases the seller may cover it, or it may be split. We are working through the best model with early sellers during the validation phase.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Inline CTA -->
+    <div class="inline-cta fade-in">
+      <div class="inline-cta__text">
+        <strong>Selling on Instagram or WhatsApp?</strong>
+        Join the early seller waitlist and get access before we open to the public.
+      </div>
+      <a href="index.html#waitlist" class="btn btn--primary" style="flex-shrink:0">Join waitlist</a>
+    </div>
+
+
+    <!-- FOR BUYERS -->
+    <div class="faq-category fade-in">
+      <div class="faq-category__header">
+        <div class="faq-category__icon" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+        </div>
+        <h2 class="faq-category__title">For buyers</h2>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-item__trigger" aria-expanded="false">
+          <span class="faq-item__q">Why would a buyer use OKO-TO?</span>
+          <span class="faq-item__icon" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></span>
+        </button>
+        <div class="faq-item__body" role="region">
+          <div class="faq-item__body-inner">
+            <p class="faq-item__a">Buyers can use OKO-TO to avoid sending money blindly to someone they do not know. The payment is protected until delivery is confirmed or the agreed release condition is met &mdash; giving buyers a clear path forward if something goes wrong.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-item__trigger" aria-expanded="false">
+          <span class="faq-item__q">Does the buyer need to download an app?</span>
+          <span class="faq-item__icon" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></span>
+        </button>
+        <div class="faq-item__body" role="region">
+          <div class="faq-item__body-inner">
+            <p class="faq-item__a">No. The buyer should be able to open the protected payment link in their browser, review the order details, and pay from there &mdash; without downloading anything.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-item__trigger" aria-expanded="false">
+          <span class="faq-item__q">What if I do not receive my order?</span>
+          <span class="faq-item__icon" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></span>
+        </button>
+        <div class="faq-item__body" role="region">
+          <div class="faq-item__body-inner">
+            <p class="faq-item__a">If you do not receive your order or there is a problem, you can raise a dispute. OKO-TO will review the transaction details and available evidence before deciding the next step. The payment is not released until the situation is resolved.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- PAYMENTS AND RELEASE -->
+    <div class="faq-category fade-in fade-in-d1">
+      <div class="faq-category__header">
+        <div class="faq-category__icon" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="2" y="7" width="20" height="14" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M16 11h.01M2 11h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M2 7l10-4 10 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h2 class="faq-category__title">Payments and release</h2>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-item__trigger" aria-expanded="false">
+          <span class="faq-item__q">How is the payment protected?</span>
+          <span class="faq-item__icon" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></span>
+        </button>
+        <div class="faq-item__body" role="region">
+          <div class="faq-item__body-inner">
+            <p class="faq-item__a">Payments are processed through <strong>secure payment infrastructure</strong>. OKO-TO uses escrow-style protection, meaning funds are not released to the seller until the agreed conditions are met. The terms for release are set at the time of payment.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-item__trigger" aria-expanded="false">
+          <span class="faq-item__q">What triggers the release of funds to the seller?</span>
+          <span class="faq-item__icon" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></span>
+        </button>
+        <div class="faq-item__body" role="region">
+          <div class="faq-item__body-inner">
+            <p class="faq-item__a">Funds are released after the buyer confirms delivery, or after the agreed release condition is met. The specific conditions are set when the payment link is created, so both parties know what to expect before any money moves.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-item__trigger" aria-expanded="false">
+          <span class="faq-item__q">What if the buyer does not confirm delivery?</span>
+          <span class="faq-item__icon" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></span>
+        </button>
+        <div class="faq-item__body" role="region">
+          <div class="faq-item__body-inner">
+            <p class="faq-item__a">We are designing a clear resolution window into the product. If a buyer does not confirm within the agreed timeframe and has not raised a dispute, the transaction will move to a review state. The specific rules will be communicated clearly to both parties upfront.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- DISPUTES -->
+    <div class="faq-category fade-in fade-in-d2">
+      <div class="faq-category__header">
+        <div class="faq-category__icon" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M12 8v4M12 16h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </div>
+        <h2 class="faq-category__title">Disputes</h2>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-item__trigger" aria-expanded="false">
+          <span class="faq-item__q">What happens if there is a problem with the order?</span>
+          <span class="faq-item__icon" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></span>
+        </button>
+        <div class="faq-item__body" role="region">
+          <div class="faq-item__body-inner">
+            <p class="faq-item__a">If something goes wrong, either side can raise a dispute. OKO-TO will review the transaction details and available evidence before deciding the next step. Disputes are reviewed fairly &mdash; both buyer and seller are heard.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-item__trigger" aria-expanded="false">
+          <span class="faq-item__q">What evidence can be used in a dispute?</span>
+          <span class="faq-item__icon" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></span>
+        </button>
+        <div class="faq-item__body" role="region">
+          <div class="faq-item__body-inner">
+            <p class="faq-item__a">Evidence may include order details, screenshots, delivery proof, waybill information, photos, videos, or messages between buyer and seller. The more clearly the original order terms were set, the easier it is to resolve any dispute.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-item__trigger" aria-expanded="false">
+          <span class="faq-item__q">Is OKO-TO on the seller&rsquo;s side or the buyer&rsquo;s side?</span>
+          <span class="faq-item__icon" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></span>
+        </button>
+        <div class="faq-item__body" role="region">
+          <div class="faq-item__body-inner">
+            <p class="faq-item__a">Neither &mdash; and that is the point. OKO-TO is designed to be impartial. Disputes are reviewed based on the agreed terms and available evidence. Both buyer and seller have a voice and a path forward. Honest sellers are protected from false claims. Buyers are protected from non-delivery.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- EARLY ACCESS -->
+    <div class="faq-category fade-in fade-in-d3">
+      <div class="faq-category__header">
+        <div class="faq-category__icon" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+        </div>
+        <h2 class="faq-category__title">Early access</h2>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-item__trigger" aria-expanded="false">
+          <span class="faq-item__q">Is OKO-TO live now?</span>
+          <span class="faq-item__icon" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></span>
+        </button>
+        <div class="faq-item__body" role="region">
+          <div class="faq-item__body-inner">
+            <p class="faq-item__a">OKO-TO is currently in early access. We are onboarding sellers, collecting feedback, and preparing controlled tests with real transactions. We are not fully live yet &mdash; but we are close, and early sellers will be first in.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-item__trigger" aria-expanded="false">
+          <span class="faq-item__q">Can I join the waitlist?</span>
+          <span class="faq-item__icon" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></span>
+        </button>
+        <div class="faq-item__body" role="region">
+          <div class="faq-item__body-inner">
+            <p class="faq-item__a">Yes. If you sell through WhatsApp or Instagram, you can join the seller waitlist and we will contact selected sellers for early access. Early sellers get zero platform fees for their first month and direct onboarding support from our team.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-item__trigger" aria-expanded="false">
+          <span class="faq-item__q">What happens after I join the waitlist?</span>
+          <span class="faq-item__icon" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></span>
+        </button>
+        <div class="faq-item__body" role="region">
+          <div class="faq-item__body-inner">
+            <p class="faq-item__a">We will review your details and reach out on WhatsApp when your early access is ready. We may also ask for a short conversation to understand how you currently sell, so we can set you up properly. We will not spam you.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-item__trigger" aria-expanded="false">
+          <span class="faq-item__q">I have a question that is not answered here. What do I do?</span>
+          <span class="faq-item__icon" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></span>
+        </button>
+        <div class="faq-item__body" role="region">
+          <div class="faq-item__body-inner">
+            <p class="faq-item__a">Join the waitlist and mention your question in the Instagram handle field, or reach out to us directly. We are a small team and we read everything. Your question may also help us improve this page for other sellers.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /container -->
+</section>
+
+
+<!-- ══ FINAL CTA ══ -->
+<section class="final-cta">
+  <div class="final-cta__ring final-cta__ring--1" aria-hidden="true"></div>
+  <div class="final-cta__ring final-cta__ring--2" aria-hidden="true"></div>
+  <div class="container">
+    <div class="final-cta__label">Early access</div>
+    <h2 class="final-cta__headline">Ready to sell with more trust?</h2>
+    <p class="final-cta__sub">Join the OKO-TO seller waitlist. Zero fees for your first month. Direct onboarding support from our team.</p>
+    <div class="final-cta__row">
+      <a href="index.html#waitlist" class="btn btn--primary">Join the seller waitlist</a>
+      <a href="index.html" class="btn btn--ghost-dark">Back to homepage</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ FOOTER ══ -->
+<footer class="footer">
+  <div class="container container--wide">
+    <div class="footer__inner">
+      <div>
+        <a href="index.html" class="footer__brand nav__logo">
+          <span class="logo-mark" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 32 32" fill="none">
+              <circle cx="16" cy="16" r="13.5" stroke="currentColor" stroke-width="2"/>
+              <path d="M16 7.5 C21 7.5,25 11.5,25 16 C25 20.5,21 24.5,16 24.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+              <circle cx="16" cy="16" r="2.8" fill="currentColor"/>
+            </svg>
+          </span>
+          <span class="logo-wordmark">OKO-TO</span>
+        </a>
+        <p class="footer__tagline">Protected payment links for WhatsApp and Instagram sellers.</p>
+      </div>
+      <div class="footer__links">
+        <a href="index.html">Home</a>
+        <a href="index.html#how-it-works">How it works</a>
+        <a href="index.html#waitlist">Join waitlist</a>
+        <a href="faq.html">FAQ</a>
+      </div>
+      <p class="footer__copy">&copy; 2026 OKO-TO. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+(function(){
+  'use strict';
+
+  /* ── Nav shadow ── */
+  var nav = document.getElementById('nav');
+  window.addEventListener('scroll', function(){
+    if(nav) nav.classList.toggle('nav--scrolled', window.scrollY > 24);
+  }, {passive:true});
+
+  /* ── Mobile menu ── */
+  var hamburger   = document.getElementById('hamburger');
+  var menuClose   = document.getElementById('menuClose');
+  var mobileMenu  = document.getElementById('mobileMenu');
+  var menuOverlay = document.getElementById('menuOverlay');
+
+  function openMenu(){
+    mobileMenu.classList.add('open');
+    mobileMenu.setAttribute('aria-hidden','false');
+    menuOverlay.classList.add('open');
+    document.body.style.overflow='hidden';
+    hamburger.setAttribute('aria-expanded','true');
+  }
+  function closeMenu(){
+    mobileMenu.classList.remove('open');
+    mobileMenu.setAttribute('aria-hidden','true');
+    menuOverlay.classList.remove('open');
+    document.body.style.overflow='';
+    hamburger.setAttribute('aria-expanded','false');
+  }
+  if(hamburger)   hamburger.addEventListener('click', openMenu);
+  if(menuClose)   menuClose.addEventListener('click', closeMenu);
+  if(menuOverlay) menuOverlay.addEventListener('click', closeMenu);
+  document.querySelectorAll('[data-close]').forEach(function(el){
+    el.addEventListener('click', closeMenu);
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key==='Escape' && mobileMenu && mobileMenu.classList.contains('open')) closeMenu();
+  });
+
+  /* ── Accordion ── */
+  document.querySelectorAll('.faq-item__trigger').forEach(function(trigger){
+    trigger.addEventListener('click', function(){
+      var item    = trigger.closest('.faq-item');
+      var body    = item.querySelector('.faq-item__body');
+      var isOpen  = item.classList.contains('open');
+
+      /* Close all other open items */
+      document.querySelectorAll('.faq-item.open').forEach(function(openItem){
+        if(openItem !== item){
+          openItem.classList.remove('open');
+          openItem.querySelector('.faq-item__trigger').setAttribute('aria-expanded','false');
+          openItem.querySelector('.faq-item__body').style.maxHeight = '0';
+        }
+      });
+
+      /* Toggle this item */
+      if(isOpen){
+        item.classList.remove('open');
+        trigger.setAttribute('aria-expanded','false');
+        body.style.maxHeight = '0';
+      } else {
+        item.classList.add('open');
+        trigger.setAttribute('aria-expanded','true');
+        body.style.maxHeight = body.scrollHeight + 'px';
+      }
+    });
+  });
+
+  /* ── Scroll fade-in ── */
+  if('IntersectionObserver' in window){
+    var obs = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('visible');
+          obs.unobserve(entry.target);
+        }
+      });
+    },{threshold:0.1, rootMargin:'0px 0px -32px 0px'});
+    document.querySelectorAll('.fade-in').forEach(function(el){ obs.observe(el); });
+  } else {
+    document.querySelectorAll('.fade-in').forEach(function(el){ el.classList.add('visible'); });
+  }
+
+})();
+</script>
+</body>
+</html>
