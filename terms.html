@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="OKO-TO Terms of Use — the rules for using our waitlist and early access product." />
+  <meta name="description" content="OKO-TO Terms of Use — clear operational rules for buyers and sellers using protected payment links." />
   <title>Terms of Use — OKO-TO</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -11,33 +11,19 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --green-900:#0f2318;
-  --green-800:#163020;
-  --green-600:#255535;
-  --green-500:#2d6940;
-  --green-100:#d4ead9;
-  --green-50:#edf6ef;
-  --amber:#d4872a;
-  --amber-lt:#e8a84f;
-  --cream:#faf7f2;
-  --white:#ffffff;
-  --ink-900:#0f1a12;
-  --ink-400:#5a7561;
-  --ink-200:#a8bfac;
-  --radius-md:16px;
-  --shadow-sm:0 2px 10px rgba(15,35,24,.08);
-  --transition:0.25s cubic-bezier(0.4,0,0.2,1);
-  --nav-h:68px;
+  --green-900:#0f2318;--green-600:#255535;--green-500:#2d6940;--green-300:#6bb580;
+  --green-100:#d4ead9;--green-50:#edf6ef;--amber:#d4872a;--amber-lt:#e8a84f;
+  --cream:#faf7f2;--white:#ffffff;--ink-900:#0f1a12;--ink-400:#5a7561;
+  --radius-md:16px;--shadow-sm:0 2px 10px rgba(15,35,24,.08);
+  --transition:0.25s cubic-bezier(0.4,0,0.2,1);--nav-h:68px;
 }
 html{scroll-behavior:smooth;font-size:16px}
 body{font-family:'DM Sans',system-ui,sans-serif;background:var(--cream);color:var(--ink-900);line-height:1.65;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
 button{cursor:pointer;font-family:inherit}
-
-.container{width:100%;max-width:720px;margin:0 auto;padding:0 24px}
+.container{width:100%;max-width:740px;margin:0 auto;padding:0 24px}
 .container--wide{max-width:1120px}
 
-/* NAV */
 .nav{position:fixed;top:0;left:0;right:0;z-index:100;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 28px;background:rgba(15,35,24,.94);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.055);transition:box-shadow var(--transition)}
 .nav--scrolled{box-shadow:0 4px 32px rgba(0,0,0,.22)}
 .nav__logo{display:flex;align-items:center;gap:10px;text-decoration:none}
@@ -50,8 +36,6 @@ button{cursor:pointer;font-family:inherit}
 .nav__cta:hover{background:var(--amber-lt)}
 .nav__hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;padding:8px}
 .nav__hamburger span{display:block;width:22px;height:2px;background:var(--cream);border-radius:2px}
-
-/* Mobile menu */
 .mobile-menu{position:fixed;top:0;right:-100%;width:80%;max-width:320px;height:100%;background:var(--green-900);z-index:200;display:flex;flex-direction:column;padding:84px 32px 40px;gap:30px;transition:right .38s cubic-bezier(.4,0,.2,1);box-shadow:-8px 0 40px rgba(0,0,0,.3)}
 .mobile-menu.open{right:0}
 .mobile-menu__close{position:absolute;top:20px;right:20px;background:none;border:none;color:rgba(250,247,242,.7);font-size:1.1rem;padding:10px;line-height:1}
@@ -60,7 +44,6 @@ button{cursor:pointer;font-family:inherit}
 .mobile-menu__overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:150;opacity:0;pointer-events:none;transition:opacity .38s}
 .mobile-menu__overlay.open{opacity:1;pointer-events:all}
 
-/* PAGE HERO */
 .page-hero{background:var(--green-900);padding-top:calc(var(--nav-h) + 56px);padding-bottom:56px;position:relative;overflow:hidden}
 .page-hero__ring{position:absolute;border-radius:50%;border:1px solid rgba(255,255,255,.035);pointer-events:none}
 .page-hero__ring--1{width:500px;height:500px;top:-180px;right:-120px}
@@ -69,44 +52,49 @@ button{cursor:pointer;font-family:inherit}
 .page-hero__title{font-family:'DM Serif Display',Georgia,serif;font-size:clamp(2rem,4vw,2.8rem);color:var(--cream);line-height:1.15;margin-bottom:10px}
 .page-hero__meta{font-size:.85rem;color:rgba(250,247,242,.45)}
 
-/* CONTENT */
+.toc{background:var(--green-50);border:1px solid var(--green-100);border-radius:var(--radius-md);padding:22px 26px;margin-bottom:40px}
+.toc__title{font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--green-500);margin-bottom:12px}
+.toc__list{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:6px 20px}
+.toc__list li a{font-size:.86rem;color:var(--green-600);transition:color var(--transition)}
+.toc__list li a:hover{color:var(--green-900)}
+
 .policy-body{padding:64px 0 96px;background:var(--cream)}
 .policy-content{background:var(--white);border-radius:var(--radius-md);padding:48px;border:1px solid rgba(15,35,24,.06);box-shadow:var(--shadow-sm)}
-
-.policy-content h2{font-family:'DM Serif Display',Georgia,serif;font-size:1.25rem;color:var(--ink-900);margin-top:40px;margin-bottom:12px}
-.policy-content h2:first-child{margin-top:0}
+.policy-content h2{font-family:'DM Serif Display',Georgia,serif;font-size:1.3rem;color:var(--ink-900);margin-top:48px;margin-bottom:14px;scroll-margin-top:calc(var(--nav-h) + 16px)}
+.policy-content h2:first-of-type{margin-top:0}
+.policy-content h3{font-size:.95rem;font-weight:600;color:var(--ink-900);margin-top:22px;margin-bottom:10px}
 .policy-content p{font-size:.93rem;color:var(--ink-400);line-height:1.75;margin-bottom:14px}
 .policy-content p:last-child{margin-bottom:0}
 .policy-content ul{list-style:none;margin-bottom:14px;display:flex;flex-direction:column;gap:8px}
 .policy-content ul li{font-size:.93rem;color:var(--ink-400);line-height:1.65;padding-left:18px;position:relative}
-.policy-content ul li::before{content:'';position:absolute;left:0;top:8px;width:5px;height:5px;border-radius:50%;background:var(--green-300)}
-.policy-content a{color:var(--green-500);text-decoration:underline;text-underline-offset:2px}
-.policy-content a:hover{color:var(--green-600)}
-.policy-divider{border:none;border-top:1px solid rgba(15,35,24,.07);margin:32px 0}
+.policy-content ul li::before{content:'';position:absolute;left:0;top:9px;width:5px;height:5px;border-radius:50%;background:var(--green-300)}
+.policy-content ol{list-style:none;counter-reset:ol;margin-bottom:14px;display:flex;flex-direction:column;gap:8px}
+.policy-content ol li{font-size:.93rem;color:var(--ink-400);line-height:1.65;padding-left:26px;position:relative;counter-increment:ol}
+.policy-content ol li::before{content:counter(ol)'.';position:absolute;left:0;top:0;font-weight:600;color:var(--green-500);font-size:.85rem}
+.policy-divider{border:none;border-top:1px solid rgba(15,35,24,.07);margin:36px 0}
+.callout{border-radius:var(--radius-md);padding:16px 20px;margin:16px 0 20px;font-size:.9rem;line-height:1.6}
+.callout--green{background:var(--green-50);border:1px solid var(--green-100);color:var(--green-600)}
+.callout--amber{background:#fff7ed;border:1px solid #fed7aa;color:#92400e}
+.callout strong{display:block;font-weight:600;margin-bottom:4px}
 
-/* FOOTER */
 .footer{background:var(--green-900);border-top:1px solid rgba(255,255,255,.055);padding:40px 0 28px}
 .footer__inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
-.footer__logo{display:flex;align-items:center;gap:10px}
 .footer__links{display:flex;gap:20px}
 .footer__links a{font-size:.82rem;color:rgba(250,247,242,.45);transition:color var(--transition)}
 .footer__links a:hover{color:var(--cream)}
 .footer__copy{font-size:.76rem;color:rgba(250,247,242,.25);width:100%}
 
 @media(max-width:700px){
-  .nav__links{display:none}
-  .nav__hamburger{display:flex}
-  .policy-content{padding:28px 20px}
+  .nav__links{display:none}.nav__hamburger{display:flex}
+  .policy-content{padding:28px 18px}
+  .toc__list{grid-template-columns:1fr}
   .footer__inner{flex-direction:column;align-items:flex-start}
 }
-@media(max-width:480px){
-  .container{padding:0 16px}
-}
+@media(max-width:480px){.container{padding:0 16px}}
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav class="nav" id="nav">
   <a href="index.html" class="nav__logo" aria-label="OKO-TO Home">
     <span class="logo-mark" aria-hidden="true">
@@ -121,128 +109,249 @@ button{cursor:pointer;font-family:inherit}
   </a>
   <div class="nav__links">
     <a href="index.html" class="nav__link">Home</a>
-    <a href="index.html#how-it-works" class="nav__link">How it works</a>
     <a href="faq.html" class="nav__link">FAQ</a>
+    <a href="privacy.html" class="nav__link">Privacy</a>
     <a href="index.html#waitlist" class="nav__cta">Join waitlist</a>
   </div>
   <button class="nav__hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
 </nav>
-
 <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
   <button class="mobile-menu__close" id="menuClose" aria-label="Close menu">&#x2715;</button>
   <a href="index.html" class="mobile-menu__link" data-close>Home</a>
-  <a href="index.html#how-it-works" class="mobile-menu__link" data-close>How it works</a>
   <a href="faq.html" class="mobile-menu__link" data-close>FAQ</a>
+  <a href="privacy.html" class="mobile-menu__link" data-close>Privacy</a>
   <a href="index.html#waitlist" class="mobile-menu__link mobile-menu__link--cta" data-close>Join the waitlist</a>
 </div>
 <div class="mobile-menu__overlay" id="menuOverlay"></div>
 
-
-<!-- HERO -->
 <section class="page-hero">
   <div class="page-hero__ring page-hero__ring--1" aria-hidden="true"></div>
   <div class="page-hero__ring page-hero__ring--2" aria-hidden="true"></div>
   <div class="container">
     <div class="page-hero__label">Legal</div>
     <h1 class="page-hero__title">Terms of Use</h1>
-    <p class="page-hero__meta">Last updated: May 2026</p>
+    <p class="page-hero__meta">Last updated: May 2026 &nbsp;&middot;&nbsp; OKO-TO Early Access</p>
   </div>
 </section>
 
-
-<!-- CONTENT -->
 <div class="policy-body">
   <div class="container">
     <div class="policy-content">
 
-      <h2>About these terms</h2>
-      <p>These terms cover your use of the OKO-TO website and waitlist. OKO-TO is a protected payment link product for WhatsApp and Instagram sellers in Nigeria. We are currently in early access. By joining our waitlist or using this website, you agree to these terms.</p>
-      <p>We have written them plainly so they are actually readable. If something is unclear, please ask us.</p>
+      <nav class="toc" aria-label="Contents">
+        <div class="toc__title">On this page</div>
+        <ul class="toc__list">
+          <li><a href="#about">About these terms</a></li>
+          <li><a href="#what-okoto-is">What OKO-TO is right now</a></li>
+          <li><a href="#how-transactions-work">How transactions work</a></li>
+          <li><a href="#seller-responsibilities">Seller responsibilities</a></li>
+          <li><a href="#buyer-responsibilities">Buyer responsibilities</a></li>
+          <li><a href="#dispute-resolution">Dispute resolution process</a></li>
+          <li><a href="#automatic-release">Automatic fund release</a></li>
+          <li><a href="#refunds">Refunds and custom products</a></li>
+          <li><a href="#prohibited">Prohibited transactions</a></li>
+          <li><a href="#fees">Fees</a></li>
+          <li><a href="#platform-rules">Platform rules</a></li>
+          <li><a href="#liability">Limitation of liability</a></li>
+          <li><a href="#governing-law">Governing law</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <h2 id="about">About these terms</h2>
+      <p>These terms govern your use of OKO-TO, a protected payment link product for WhatsApp and Instagram sellers in Nigeria. By joining our waitlist, participating in early access, or using any OKO-TO service, you agree to these terms. We have written them clearly so they are actually useful. If anything is unclear, reach out and we will explain it directly.</p>
 
       <hr class="policy-divider" />
 
-      <h2>What OKO-TO is right now</h2>
-      <p>At this stage, OKO-TO is a waitlist and an early-access product. We are not yet a fully live payment platform. We are building and testing with a small group of sellers before opening more widely.</p>
-      <p>Nothing on this website constitutes a binding financial service agreement. When we launch the full product, separate terms will apply to the payment and escrow features.</p>
+      <h2 id="what-okoto-is">What OKO-TO is right now</h2>
+      <p>OKO-TO is currently in early access. We are testing the product with a selected group of sellers before a wider launch. The product at this stage includes: a waitlist for sellers wanting early access, controlled transaction tests with participating sellers and buyers, and protected payment link functionality for agreed orders.</p>
+      <p>OKO-TO is not a bank, a money transfer operator, or a licensed financial institution. Payments processed through OKO-TO use regulated third-party payment infrastructure. OKO-TO is the trust and coordination layer that sits between the buyer and seller. When the full product launches, additional terms will apply to payment, escrow, and payout features. Those terms will be shared clearly before anyone is bound by them.</p>
 
       <hr class="policy-divider" />
 
-      <h2>The waitlist</h2>
-      <p>When you join the waitlist, you are expressing interest in early access to OKO-TO. Joining the waitlist does not guarantee access. We will contact selected sellers directly when early access is ready.</p>
-      <p>You agree to provide accurate information when filling in the form. Please do not submit false details or submit on behalf of someone else without their knowledge.</p>
+      <h2 id="how-transactions-work">How transactions work</h2>
+      <p>Every OKO-TO transaction follows a defined sequence:</p>
+      <ol>
+        <li>The seller creates a protected payment link specifying the item, price, delivery terms, and order type.</li>
+        <li>The seller shares the link with the buyer on WhatsApp or Instagram.</li>
+        <li>The buyer reviews the order details and pays through the link.</li>
+        <li>The payment is temporarily held. The seller is notified immediately and ships the item.</li>
+        <li>The buyer receives the item and confirms delivery, or raises a dispute within the review window.</li>
+        <li>If delivery is confirmed, or the review window closes without a dispute, funds are released to the seller.</li>
+        <li>If a dispute is raised, the process described in the Dispute Resolution section applies.</li>
+      </ol>
+      <p>Both parties agree to this process by using the platform. The terms of each transaction are set in the payment link before money changes hands.</p>
 
       <hr class="policy-divider" />
 
-      <h2>Using this website</h2>
-      <p>You may use this website for its intended purpose: learning about OKO-TO and joining the waitlist. You agree not to:</p>
+      <h2 id="seller-responsibilities">Seller responsibilities</h2>
+      <p>Sellers using OKO-TO accept the following obligations.</p>
+
+      <h3>Accurate product descriptions</h3>
+      <p>Sellers must describe items honestly and accurately in the payment link. The item name, condition, size, colour, and any material detail must reflect what will actually be delivered. Misleading descriptions are grounds for dispute and may result in suspension from the platform.</p>
+
+      <h3>Shipping and delivery</h3>
+      <p>Sellers are responsible for shipping within the timeframe stated in the payment link and must be able to provide delivery proof if requested. Accepted proof includes a dispatch receipt, waybill, tracking number, rider confirmation, or delivery photo.</p>
+
+      <h3>Order type disclosure</h3>
+      <p>Sellers must correctly identify whether an order is an in-stock item or a sourced item. Sellers sourcing from third parties must disclose the sourcing timeline and refund conditions clearly before the buyer pays. Failure to disclose this accurately is a breach of platform rules.</p>
+
+      <h3>Dispute cooperation</h3>
+      <p>If a dispute is raised, the seller must respond within the timeframe communicated by OKO-TO and provide any relevant evidence. Sellers who do not respond to a legitimate dispute may have funds held or released in favour of the buyer.</p>
+
+      <h3>No fraud</h3>
+      <p>Sellers must not create payment links for items they do not intend to deliver, create fictitious orders, or attempt to manipulate the dispute process. Confirmed fraudulent activity will result in immediate suspension and may be reported to relevant authorities.</p>
+
+      <hr class="policy-divider" />
+
+      <h2 id="buyer-responsibilities">Buyer responsibilities</h2>
+      <p>Buyers using OKO-TO accept the following obligations:</p>
       <ul>
-        <li>Use the site in any way that is unlawful or harmful to others</li>
-        <li>Attempt to access systems or data you are not authorised to access</li>
-        <li>Submit malicious code, spam, or false information through any form</li>
-        <li>Reproduce or redistribute content from this site without permission</li>
+        <li>Review the full order details before paying. By paying, the buyer confirms they have read and accepted the stated terms.</li>
+        <li>Confirm delivery honestly. A buyer must not confirm delivery if the item has not arrived, or refuse to confirm without legitimate grounds.</li>
+        <li>Raise disputes in good faith only. False or manipulative disputes are a breach of platform rules.</li>
+        <li>Respond within the review window if contacted during a dispute.</li>
+        <li>Not attempt to reverse a completed payment through external means after confirming delivery.</li>
       </ul>
 
       <hr class="policy-divider" />
 
-      <h2>Early access participation</h2>
-      <p>If you are selected for early access, we will reach out to explain how that works. Early access involves testing the product with real or simulated transactions. We will be clear about what is expected from both sides before any transaction takes place.</p>
-      <p>Early access sellers agree to provide honest feedback. That feedback helps us build a better product for everyone.</p>
+      <h2 id="dispute-resolution">Dispute resolution process</h2>
+      <div class="callout callout--green">
+        <strong>How disputes work</strong>
+        OKO-TO reviews disputes using evidence submitted by both sides. Decisions are based on the original transaction terms and available proof. Neither party has an automatic advantage.
+      </div>
+
+      <h3>Who can raise a dispute</h3>
+      <p>Either the buyer or the seller can raise a dispute. Disputes must be raised within the buyer review window. A dispute cannot be raised after the review window has closed and funds have already been released.</p>
+
+      <h3>How to raise a dispute</h3>
+      <p>During early access, disputes are raised by contacting OKO-TO through the channel communicated at the time of the transaction. When the full platform launches, a formal dispute interface will be available within the product.</p>
+
+      <h3>What counts as evidence</h3>
+      <p>Both parties may submit any of the following:</p>
+      <ul>
+        <li>Dispatch receipt or waybill</li>
+        <li>Tracking number and courier records</li>
+        <li>Rider or courier confirmation message</li>
+        <li>Delivery photo or video</li>
+        <li>Signed or acknowledged delivery confirmation</li>
+        <li>Screenshots of the original order agreement</li>
+        <li>Chat history showing what was agreed between buyer and seller</li>
+      </ul>
+
+      <h3>Review timeline</h3>
+      <p>OKO-TO aims to review submitted evidence and reach a decision within a reasonable timeframe communicated at the start of the dispute. During review, funds remain on hold. Both parties will be notified of the outcome and the reasoning behind it.</p>
+
+      <h3>How decisions are made</h3>
+      <p>Dispute outcomes are based on: the original terms in the payment link, the evidence provided by both sides, available delivery proof, and any inconsistencies between what was agreed and what was delivered. OKO-TO's decision is final within the platform. Parties retain the right to pursue external legal remedies independently.</p>
 
       <hr class="policy-divider" />
 
-      <h2>No financial guarantees</h2>
-      <p>OKO-TO uses escrow-style protection, but we are not making any guarantee of refunds, recoveries, or outcomes in this document. The payment protection features, dispute process, and release conditions will be set out clearly within the product itself when it launches.</p>
-      <p>During early access, any transaction arrangements will be communicated directly and agreed between us and the participating sellers before they happen.</p>
+      <h2 id="automatic-release">Automatic fund release rules</h2>
+      <div class="callout callout--amber">
+        <strong>Seller protection</strong>
+        Sellers are not left waiting indefinitely. If a buyer does not act within the review window, funds are automatically released to the seller.
+      </div>
+      <p>After the seller has shipped and the buyer has received the item, the buyer enters a review window. The length of this window is defined in the payment link terms agreed before payment. The following rules apply:</p>
+      <ul>
+        <li>If the buyer confirms delivery within the window, funds are released to the seller immediately.</li>
+        <li>If the buyer raises a dispute within the window, funds are held pending the outcome of the dispute process.</li>
+        <li>If the buyer does not confirm or raise a dispute before the window closes, funds are automatically released to the seller.</li>
+        <li>Once funds have been automatically released, a dispute cannot be raised through OKO-TO for that transaction.</li>
+      </ul>
+      <p>These rules apply regardless of whether the buyer is reachable after the window closes. Sellers should retain all delivery documentation until the review window has passed.</p>
 
       <hr class="policy-divider" />
 
-      <h2>Intellectual property</h2>
-      <p>The OKO-TO name, logo, and all content on this website belong to the OKO-TO team. You may not use them without written permission. If you want to write about OKO-TO, reference us accurately and link back to this site.</p>
+      <h2 id="refunds">Refunds and custom products</h2>
+
+      <h3>General refund eligibility</h3>
+      <p>A refund or payment reversal may be considered if:</p>
+      <ul>
+        <li>The item delivered is materially different from what was described in the payment link</li>
+        <li>The item was not delivered within the agreed window and no alternative was arranged</li>
+        <li>The seller cannot provide evidence of dispatch when a dispute is raised</li>
+        <li>A sourced item could not be fulfilled and the seller failed to notify the buyer or arrange a return of funds</li>
+      </ul>
+
+      <h3>Custom and made-to-order products</h3>
+      <p>Custom products including wigs, tailored garments, made-to-order items, and personalised goods have specific rules. Because these items are made specifically for the buyer:</p>
+      <ul>
+        <li>Refunds are not available once production has begun, unless the item is delivered in a condition materially different from the agreed specification</li>
+        <li>The seller must describe the specification clearly in the payment link before the buyer pays</li>
+        <li>The buyer's payment confirms acceptance of the stated specification and production timeline</li>
+        <li>If the delivered item does not match the agreed specification, the buyer may raise a dispute in the usual way</li>
+      </ul>
+
+      <h3>Damaged items</h3>
+      <p>If a buyer receives a damaged item, they must document the damage with photos or video before raising a dispute. The seller must be given the opportunity to respond before a decision is reached.</p>
+
+      <h3>Delivery failure</h3>
+      <p>If an item is lost or undeliverable during transit and the seller has evidence of dispatch, responsibility may rest with the logistics provider. OKO-TO will review the available evidence and work toward a fair resolution for both parties.</p>
 
       <hr class="policy-divider" />
 
-      <h2>Third-party platforms</h2>
-      <p>OKO-TO is designed to work alongside WhatsApp and Instagram. We are not affiliated with Meta or any other third-party platform. Using OKO-TO alongside those platforms is your responsibility under their own terms of service.</p>
+      <h2 id="prohibited">Prohibited transactions</h2>
+      <p>OKO-TO may not be used for any of the following:</p>
+      <ul>
+        <li>Illegal goods of any kind</li>
+        <li>Counterfeit or trademark-infringing products</li>
+        <li>Stolen goods</li>
+        <li>Goods regulated by Nigerian law that require a licence or special authorisation</li>
+        <li>Firearms, ammunition, or restricted weapons</li>
+        <li>Controlled substances or unprescribed medication</li>
+        <li>Fraudulent or fictitious orders</li>
+        <li>Money laundering or any activity intended to obscure the origin of funds</li>
+        <li>Transactions designed to exploit, deceive, or harm the other party</li>
+      </ul>
+      <p>Sellers found using OKO-TO for prohibited transactions will be suspended immediately and may be reported to relevant Nigerian authorities.</p>
 
       <hr class="policy-divider" />
 
-      <h2>Limitation of liability</h2>
-      <p>This website is provided as-is during our early-access period. We do our best to keep it accurate and available, but we cannot guarantee it will always be error-free or uninterrupted. We are not liable for any losses arising from your use of this website or the waitlist.</p>
-      <p>When the full payment product launches, a separate and more detailed agreement will cover liability in the context of actual transactions.</p>
+      <h2 id="fees">Fees</h2>
+      <p>During early access, sellers accepted into the programme have zero platform fees for their first month. After this period, OKO-TO will introduce a transaction fee per completed order. Fee rates will be communicated clearly before they take effect. No fee will be charged without prior notice. Sellers will always be able to see the applicable fee before creating a payment link.</p>
 
       <hr class="policy-divider" />
 
-      <h2>Changes to these terms</h2>
-      <p>We will update these terms as the product grows. The date at the top of this page shows when they were last changed. Continued use of the website after changes means you accept the updated terms.</p>
+      <h2 id="platform-rules">Platform rules</h2>
+      <p>All users agree not to:</p>
+      <ul>
+        <li>Attempt to access systems, accounts, or data they are not authorised to access</li>
+        <li>Submit false information in any form on the platform</li>
+        <li>Use OKO-TO to evade obligations from another transaction or platform</li>
+        <li>Reproduce or redistribute OKO-TO content or branding without written permission</li>
+        <li>Interfere with the operation of the platform in any way</li>
+      </ul>
 
       <hr class="policy-divider" />
 
-      <h2>Governing law</h2>
-      <p>These terms are governed by the laws of the Federal Republic of Nigeria. Any disputes arising from these terms will be subject to Nigerian jurisdiction.</p>
+      <h2 id="liability">Limitation of liability</h2>
+      <p>OKO-TO is a coordination and trust layer. We facilitate the process between buyers and sellers. We are not the seller, the courier, or the financial institution holding the funds.</p>
+      <p>OKO-TO is not liable for: loss or damage caused by third-party logistics providers, the accuracy of information provided by sellers or buyers, technical interruptions during early access, or disputes that cannot be resolved due to insufficient evidence from either party. When the full payment product launches, a more detailed liability framework specific to financial transactions will be provided.</p>
 
       <hr class="policy-divider" />
 
-      <h2>Contact us</h2>
-      <p>If you have questions about these terms, reach out through our Instagram page or via WhatsApp. We are a small team and you will get a direct response.</p>
+      <h2 id="governing-law">Governing law</h2>
+      <p>These terms are governed by the laws of the Federal Republic of Nigeria. Any dispute arising from these terms that cannot be resolved through OKO-TO's internal process is subject to Nigerian jurisdiction.</p>
+
+      <hr class="policy-divider" />
+
+      <h2 id="contact">Contact</h2>
+      <p>Questions about these terms can be sent through our Instagram page or via WhatsApp. During early access, we respond to every message directly. You will not get a bot or a form with no follow-up.</p>
 
     </div>
   </div>
 </div>
 
-
-<!-- FOOTER -->
 <footer class="footer">
   <div class="container--wide" style="padding:0 24px">
     <div class="footer__inner">
-      <a href="index.html" class="footer__logo nav__logo">
+      <a href="index.html" class="nav__logo">
         <span class="logo-mark" aria-hidden="true">
-          <svg width="24" height="24" viewBox="0 0 32 32" fill="none">
-            <circle cx="16" cy="16" r="13.5" stroke="currentColor" stroke-width="2"/>
-            <path d="M16 7.5 C21 7.5,25 11.5,25 16 C25 20.5,21 24.5,16 24.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none"/>
-            <circle cx="16" cy="16" r="2.8" fill="currentColor"/>
-          </svg>
+          <svg width="24" height="24" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="13.5" stroke="currentColor" stroke-width="2"/><path d="M16 7.5 C21 7.5,25 11.5,25 16 C25 20.5,21 24.5,16 24.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none"/><circle cx="16" cy="16" r="2.8" fill="currentColor"/></svg>
         </span>
         <span class="logo-wordmark">OKO-TO</span>
       </a>
@@ -257,27 +366,18 @@ button{cursor:pointer;font-family:inherit}
   </div>
 </footer>
 
-
 <script>
 (function(){
-  var nav = document.getElementById('nav');
-  window.addEventListener('scroll', function(){
-    if(nav) nav.classList.toggle('nav--scrolled', window.scrollY > 24);
-  }, {passive:true});
-
-  var hamburger   = document.getElementById('hamburger');
-  var menuClose   = document.getElementById('menuClose');
-  var mobileMenu  = document.getElementById('mobileMenu');
-  var menuOverlay = document.getElementById('menuOverlay');
-
-  function openMenu(){ mobileMenu.classList.add('open'); menuOverlay.classList.add('open'); document.body.style.overflow='hidden'; hamburger.setAttribute('aria-expanded','true'); }
-  function closeMenu(){ mobileMenu.classList.remove('open'); menuOverlay.classList.remove('open'); document.body.style.overflow=''; hamburger.setAttribute('aria-expanded','false'); }
-
-  if(hamburger) hamburger.addEventListener('click', openMenu);
-  if(menuClose) menuClose.addEventListener('click', closeMenu);
-  if(menuOverlay) menuOverlay.addEventListener('click', closeMenu);
-  document.querySelectorAll('[data-close]').forEach(function(el){ el.addEventListener('click', closeMenu); });
-  document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeMenu(); });
+  var nav=document.getElementById('nav');
+  window.addEventListener('scroll',function(){if(nav)nav.classList.toggle('nav--scrolled',window.scrollY>24);},{passive:true});
+  var h=document.getElementById('hamburger'),mc=document.getElementById('menuClose'),mm=document.getElementById('mobileMenu'),mo=document.getElementById('menuOverlay');
+  function open(){mm.classList.add('open');mo.classList.add('open');document.body.style.overflow='hidden';h.setAttribute('aria-expanded','true');}
+  function close(){mm.classList.remove('open');mo.classList.remove('open');document.body.style.overflow='';h.setAttribute('aria-expanded','false');}
+  if(h)h.addEventListener('click',open);
+  if(mc)mc.addEventListener('click',close);
+  if(mo)mo.addEventListener('click',close);
+  document.querySelectorAll('[data-close]').forEach(function(el){el.addEventListener('click',close);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
 })();
 </script>
 </body>
