@@ -214,6 +214,8 @@ button{cursor:pointer;font-family:inherit}
 .trust__inner{display:grid;grid-template-columns:1fr 1.5fr;gap:72px;align-items:start}
 .trust__headline{font-family:'DM Serif Display',Georgia,serif;font-size:clamp(1.75rem,3.5vw,2.35rem);color:var(--ink-900);line-height:1.2;margin-bottom:16px}
 .trust__sub{font-size:.95rem;color:var(--ink-400);line-height:1.72}
+.trust__faq-link{display:inline-flex;align-items:center;gap:7px;margin-top:18px;font-size:.88rem;font-weight:600;color:var(--green-500);text-decoration:none;transition:color var(--transition)}
+.trust__faq-link:hover{color:var(--green-600)}
 .trust__pillars{display:flex;flex-direction:column;gap:16px}
 .trust__pillar{display:flex;gap:18px;align-items:flex-start;padding:22px 24px;background:var(--white);border:1px solid rgba(15,35,24,.055);border-radius:var(--radius-md);transition:all var(--transition)}
 .trust__pillar:hover{border-color:var(--green-100);box-shadow:var(--shadow-sm)}
@@ -348,6 +350,7 @@ button{cursor:pointer;font-family:inherit}
     <a href="#how-it-works" class="nav__link">How it works</a>
     <a href="#sellers" class="nav__link">For sellers</a>
     <a href="#buyers" class="nav__link">For buyers</a>
+    <a href="faq.html" class="nav__link">FAQ</a>
     <a href="#waitlist" class="nav__cta-link">Join waitlist</a>
   </div>
   <button class="nav__hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
@@ -361,6 +364,7 @@ button{cursor:pointer;font-family:inherit}
   <a href="#how-it-works" class="mobile-menu__link" data-close>How it works</a>
   <a href="#sellers" class="mobile-menu__link" data-close>For sellers</a>
   <a href="#buyers" class="mobile-menu__link" data-close>For buyers</a>
+  <a href="faq.html" class="mobile-menu__link" data-close>FAQ</a>
   <a href="#waitlist" class="mobile-menu__link mobile-menu__link--cta" data-close>Join the waitlist</a>
 </div>
 <div class="mobile-menu__overlay" id="menuOverlay"></div>
@@ -621,6 +625,10 @@ button{cursor:pointer;font-family:inherit}
         <div class="section-label">Why OKO-TO</div>
         <h2 class="trust__headline">Built for the way Nigerians actually buy and sell.</h2>
         <p class="trust__sub">OKO-TO is not a global payment platform squeezed into a Nigerian context. It was built from scratch for trade that happens over WhatsApp threads, Instagram DMs, and story replies.</p>
+        <a href="faq.html" class="trust__faq-link">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3M12 17h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          Have questions? Read the FAQ
+        </a>
       </div>
       <div class="trust__pillars">
         <div class="trust__pillar">
@@ -821,6 +829,7 @@ button{cursor:pointer;font-family:inherit}
           <a href="#how-it-works">How it works</a>
           <a href="#sellers">For sellers</a>
           <a href="#buyers">For buyers</a>
+          <a href="faq.html">FAQ</a>
         </div>
         <div class="footer__nav-col">
           <h4 class="footer__nav-heading">Company</h4>
