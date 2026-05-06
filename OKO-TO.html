@@ -845,6 +845,28 @@ button{cursor:pointer;font-family:inherit}
 (function(){
   'use strict';
 
+  /* ══════════════════════════════════════════
+     SUPABASE CONFIG
+     Paste your two values from:
+     Supabase Dashboard → Project Settings → API
+  ══════════════════════════════════════════ */
+  var SUPABASE_URL  = 'YOUR_SUPABASE_PROJECT_URL';   // e.g. https://xyzxyz.supabase.co
+  var SUPABASE_ANON = 'YOUR_SUPABASE_ANON_KEY';      // starts with eyJ...
+
+  /* ── Save a waitlist entry to Supabase ── */
+  function saveToSupabase(data) {
+    return fetch(SUPABASE_URL + '/rest/v1/waitlist', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'apikey':        SUPABASE_ANON,
+        'Authorization': 'Bearer ' + SUPABASE_ANON,
+        'Prefer':        'return=minimal'          // don't return the row, just 201
+      },
+      body: JSON.stringify(data)
+    });
+  }
+
   document.addEventListener('DOMContentLoaded', function(){
 
     /* ── Mobile menu ── */
@@ -932,64 +954,125 @@ button{cursor:pointer;font-family:inherit}
     if(!form) return;
 
     function getVal(id){ var el=document.getElementById(id); return el?el.value.trim():''; }
+
     function setError(fieldId, errorId, msg){
       var f=document.getElementById(fieldId);
       var e=document.getElementById(errorId);
-      if(f){ f.classList.toggle('error',!!msg); if(msg) f.setAttribute('aria-invalid','true'); else f.removeAttribute('aria-invalid'); }
+      if(f){
+        f.classList.toggle('error',!!msg);
+        if(msg) f.setAttribute('aria-invalid','true');
+        else f.removeAttribute('aria-invalid');
+      }
       if(e) e.textContent=msg||'';
     }
+
     function clearErrors(){
       setError('wl-name','nameError','');
       setError('wl-phone','phoneError','');
       setError('wl-category','categoryError','');
     }
+
     function validate(){
       var ok=true;
       clearErrors();
       var name=getVal('wl-name');
-      if(!name||name.length<2){ setError('wl-name','nameError','Please enter your name.'); ok=false; }
+      if(!name||name.length<2){
+        setError('wl-name','nameError','Please enter your name.');
+        ok=false;
+      }
       var phone=getVal('wl-phone').replace(/[\s\-\(\)]/g,'');
-      if(!phone){ setError('wl-phone','phoneError','Please enter your WhatsApp number.'); ok=false; }
-      else if(!/^(?:0[7-9]\d{9}|\+234[7-9]\d{9})$/.test(phone)){ setError('wl-phone','phoneError','Enter a valid Nigerian mobile number e.g. 08012345678.'); ok=false; }
-      if(!getVal('wl-category')){ setError('wl-category','categoryError','Please select what you sell.'); ok=false; }
+      if(!phone){
+        setError('wl-phone','phoneError','Please enter your WhatsApp number.');
+        ok=false;
+      } else if(!/^(?:0[7-9]\d{9}|\+234[7-9]\d{9})$/.test(phone)){
+        setError('wl-phone','phoneError','Enter a valid Nigerian mobile number e.g. 08012345678.');
+        ok=false;
+      }
+      if(!getVal('wl-category')){
+        setError('wl-category','categoryError','Please select what you sell.');
+        ok=false;
+      }
       return ok;
     }
+
     function setLoading(on){
       submitBtn.disabled=on;
-      if(btnText)    btnText.textContent=on?'Submitting\u2026':'Join the OKO-TO waitlist';
+      if(btnText)    btnText.textContent=on?'Saving your spot\u2026':'Join the OKO-TO waitlist';
       if(btnSpinner) btnSpinner.style.display=on?'inline-block':'none';
     }
 
-    /* Clear field error as user types */
+    function showSuccess(){
+      form.style.display='none';
+      if(successBox){
+        successBox.style.display='flex';
+        successBox.scrollIntoView({behavior:'smooth',block:'center'});
+      }
+    }
+
+    function showFormError(msg){
+      /* Show a general error below the button if Supabase fails */
+      var existing = document.getElementById('formGeneralError');
+      if(!existing){
+        existing = document.createElement('p');
+        existing.id = 'formGeneralError';
+        existing.style.cssText = 'font-size:.8rem;color:#f87171;text-align:center;margin-top:-8px';
+        submitBtn.parentNode.insertBefore(existing, submitBtn.nextSibling);
+      }
+      existing.textContent = msg;
+    }
+
+    /* Clear field errors as user types */
     ['wl-name','wl-phone','wl-category'].forEach(function(id){
       var el=document.getElementById(id);
       if(!el) return;
       el.addEventListener('input', function(){
         el.classList.remove('error');
         el.removeAttribute('aria-invalid');
-        var errId=id.replace('wl-','')+'Error';
-        var errEl=document.getElementById(errId);
+        var errEl=document.getElementById(id.replace('wl-','')+'Error');
         if(errEl) errEl.textContent='';
       });
     });
 
+    /* ── Form submit → Supabase ── */
     form.addEventListener('submit', function(e){
       e.preventDefault();
+
       if(!validate()){
         var first=form.querySelector('[aria-invalid="true"]');
         if(first) first.focus();
         return;
       }
+
+      /* Clear any previous general error */
+      var prevErr=document.getElementById('formGeneralError');
+      if(prevErr) prevErr.textContent='';
+
       setLoading(true);
-      /* Replace setTimeout with a real fetch() to your API endpoint */
-      setTimeout(function(){
-        setLoading(false);
-        form.style.display='none';
-        if(successBox){
-          successBox.style.display='flex';
-          successBox.scrollIntoView({behavior:'smooth',block:'center'});
-        }
-      }, 1500);
+
+      var payload = {
+        name:      getVal('wl-name'),
+        phone:     getVal('wl-phone'),
+        category:  getVal('wl-category'),
+        instagram: getVal('wl-instagram') || null
+      };
+
+      saveToSupabase(payload)
+        .then(function(res){
+          if(res.ok || res.status===201){
+            /* Success — show thank-you state */
+            showSuccess();
+          } else {
+            /* Supabase returned an error status */
+            return res.json().then(function(body){
+              throw new Error(body.message || 'Submission failed (status ' + res.status + ')');
+            });
+          }
+        })
+        .catch(function(err){
+          console.error('OKO-TO waitlist error:', err);
+          setLoading(false);
+          showFormError('Something went wrong. Please try again or send your details via WhatsApp.');
+        });
     });
 
   });
